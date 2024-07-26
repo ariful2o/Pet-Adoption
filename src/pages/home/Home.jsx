@@ -1,10 +1,12 @@
+import Banner from "./Home/Banner";
 import Carsual from "./Home/Carsual";
 
 
 export default function Home() {
   return (
-    <div>
+    <section>
       <Carsual></Carsual>
-    </div>
+      <Banner></Banner>
+    </section>
   )
 }

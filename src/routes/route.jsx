@@ -1,11 +1,17 @@
 import {
     createBrowserRouter,
 } from "react-router-dom";
+import Adoption from "../pages/adoption/Adoption";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
+import Blogs from "../pages/blogs/Blogs";
+import Breeder from "../pages/breeder/Breeder";
+import Contacts from "../pages/contacts/Contacts";
+import DogList from "../pages/dogList/DogList";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/home/Home";
 import Root from "../pages/root/Root";
+import Shop from "../pages/shop/Shop";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +28,24 @@ const router = createBrowserRouter([
             },{
                 path:"/register",
                 element:<Register></Register>
+            },{
+                path:"/doglist",
+                element:<DogList></DogList>
+            },{
+                path:"/shop",
+                element:<Shop></Shop>
+            },{
+                path:"/adoption",
+                element:<Adoption></Adoption>
+            },{
+                path:"/breeder",
+                element:<Breeder></Breeder>
+            },{
+                path:"/Contacts",
+                element:<Contacts></Contacts>
+            },{
+                path:"/blog",
+                element:<Blogs></Blogs>
             }
         ]
     },

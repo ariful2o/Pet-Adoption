@@ -25,7 +25,7 @@ export default function Carsual() {
         </Slide>
 
       </Slider>
-      <div className="w-full justify-between lg:justify-end gap-4 p-4  flex absolute bottom-10 lg:bottom-8">
+      <div className="w-full justify-between lg:justify-end gap-4 p-4  flex absolute bottom-28 lg:bottom-8">
         <ButtonBack><FaRegArrowAltCircleLeft className='text-2xl' /></ButtonBack>
         <ButtonNext><FaRegArrowAltCircleRight className='text-2xl' /></ButtonNext>
       </div>

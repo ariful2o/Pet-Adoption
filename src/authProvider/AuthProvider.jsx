@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import React, { createContext } from 'react'
 import { useState } from "react";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 import auth from "../firebase/firebase.conf";
 
 export const AuthContext = createContext(null);

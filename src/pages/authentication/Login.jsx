@@ -1,8 +1,8 @@
-import loginImg from "../../assets/vecteezy_adopt-a-pet-cute-puppies-in-the-box-vector-illustration-in-flat-style_2172289/Adopt_a_Pet8_generated.jpg"
-import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../authProvider/AuthProvider";
+import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import loginImg from "../../assets/adopt-a-pet/Adopt_a_Pet8_generated.jpg";
+import { AuthContext } from "../../authProvider/AuthProvider";
 
 
 

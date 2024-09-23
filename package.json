@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.13.2",
     "pure-react-carousel": "^1.30.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
-    "react-router-dom": "^6.25.1"
+    "react-router-dom": "^6.25.1",
+    "sweetalert2": "^11.14.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -22,7 +24,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.12.10",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",

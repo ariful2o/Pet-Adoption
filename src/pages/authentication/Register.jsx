@@ -1,18 +1,15 @@
 import registerImg from "../../assets/vecteezy_adopt-a-pet-cute-puppies-in-the-box-vector-illustration-in-flat-style_2172289/mp1q_bmyw_161126.jpg"
 import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../authProvider/AuthProvider";
+import Swal from "sweetalert2";
+import auth from "../../firebase/firebase.conf";
 
-// import { updateProfile } from "firebase/auth";
-// import { useContext } from "react";
-// import Swal from "sweetalert2";
-// import authentication from "../../../assets/others/authentication.png";
-// import authentication1 from "../../../assets/others/authentication2-removebg-preview.png";
-// import { AuthContext } from "../../../authProvider/AuthProvider";
-// import SocialSignin from "../../../components/socialSignIn/SocialSignin";
-// import auth from "../../../firebase/firebase.config";
+
 
 
 const Register = () => {
-  // const { signupUser } = useContext(AuthContext);
+  const {registerUser} = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -22,7 +19,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signupUser(email, password)
+    registerUser(email, password)
       .then(() => {
         Swal.fire({
           position: "top-end",

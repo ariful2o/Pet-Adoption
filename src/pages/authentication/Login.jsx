@@ -1,18 +1,13 @@
 import loginImg from "../../assets/vecteezy_adopt-a-pet-cute-puppies-in-the-box-vector-illustration-in-flat-style_2172289/Adopt_a_Pet8_generated.jpg"
 import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../authProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
-// import { updateProfile } from "firebase/auth";
-// import { useContext } from "react";
-// import Swal from "sweetalert2";
-// import authentication from "../../../assets/others/authentication.png";
-// import authentication1 from "../../../assets/others/authentication2-removebg-preview.png";
-// import { AuthContext } from "../../../authProvider/AuthProvider";
-// import SocialSignin from "../../../components/socialSignIn/SocialSignin";
-// import auth from "../../../firebase/firebase.config";
 
 const Login = () => {
-  // const { signupUser } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -21,7 +16,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signupUser(email, password)
+    loginUser(email, password)
       .then(() => {
         Swal.fire({
           position: "top-end",
@@ -30,9 +25,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        updateProfile(auth.currentUser, {
-          displayName: name,
-        });
+        
         navigate("/");
       })
       .then((err) => console.log(err));

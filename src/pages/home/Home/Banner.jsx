@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Banner() {
     return (
-        <section className='bg-[url("https://themebeyond.com/pre/petco-prev/petco-live/img/bg/counter_bg.jpg")]'>
+        <section className='bg-[url("https://themebeyond.com/pre/petco-prev/petco-live/img/bg/counter_bg.jpg")] py-20'>
             <div className="text-center p-4">
                 <h4 className="text-red-500 text-2xl mt-10">Why Choose Us?
                 </h4>

@@ -1,5 +1,6 @@
 import Banner from "./Home/Banner";
 import Carsual from "./Home/Carsual";
+import FindFriends from "./Home/FindFriends";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <section>
       <Carsual></Carsual>
       <Banner></Banner>
+      <FindFriends></FindFriends>
     </section>
   )
 }

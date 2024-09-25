@@ -26,7 +26,7 @@ export default function AuthProvider({ children }) {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Sign out Success",
+        title: "Sign Out Success",
         showConfirmButton: false,
         timer: 1000,
       });

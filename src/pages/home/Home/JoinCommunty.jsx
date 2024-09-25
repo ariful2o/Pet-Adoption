@@ -5,7 +5,7 @@ import image2 from '../../../../src/assets/cat & dog/Image (2).png'
 
 export default function JoinCommunty() {
     return (
-        <section>
+        <section className='bg-[url("https://themebeyond.com/pre/petco-prev/petco-live/img/bg/counter_bg.jpg")]'>
             <div className="flex flex-col lg:flex-row gap-10 py-20">
                 <div className="p-10">
                     <h4 className="text-2xl leading-10 mb-20">At Petopia, we're dedicated to rescuing and rehoming pets in need, ensuring they find the love they deserve. With compassion and community at our core, we aim to match each pet with their perfect forever family, fostering lifelong bonds of love.</h4>

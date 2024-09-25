@@ -4,6 +4,7 @@ import Donate from "./Home/Donate";
 import FindFriends from "./Home/FindFriends";
 import HowAdopat from "./Home/HowAdopat";
 import JoinCommunty from "./Home/JoinCommunty";
+import Subscribe from "./Home/Subscribe";
 import Volunteer from "./Home/Volunteer";
 
 
@@ -17,6 +18,7 @@ export default function Home() {
       <JoinCommunty></JoinCommunty>
       <Donate></Donate>
       <Volunteer></Volunteer>
+      <Subscribe></Subscribe>
     </section>
   )
 }

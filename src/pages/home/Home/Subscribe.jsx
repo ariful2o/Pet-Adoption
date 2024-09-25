@@ -20,7 +20,6 @@ export default function Subscribe() {
                         </label>
                         <button className='btn px-4 py-2' type="submit">Subscribe</button>
                     </form>
-
                 </div>
             </div>
         </section>

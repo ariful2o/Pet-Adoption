@@ -6,24 +6,29 @@ export default function Footer() {
         <section>
             <footer className="footer bg-base-200 text-base-content p-10">
                 <nav>
-                    <h6 className="footer-title">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <h6 className="footer-title">Adopt</h6>
+                    <a className="link link-hover">Available Pets</a>
+                    <a className="link link-hover">Adoption Process</a>
+                    <a className="link link-hover">Adoption FAQs</a>
+                </nav>
+                <nav>
+                    <h6 className="footer-title">Get Involved</h6>
+                    <a className="link link-hover">Volunteer Opportunities</a>
+                    <a className="link link-hover">Volunteer Spotlight</a>
+                    <a className="link link-hover">Ways to Donate</a>
+                </nav>
+                <nav>
+                    <h6 className="footer-title">Blog</h6>
+                    <a className="link link-hover">Latest Posts</a>
+                    <a className="link link-hover">Community Posts</a>
+                    <a className="link link-hover">Popular Topics</a>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
-                </nav>
-                <nav>
-                    <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <a className="link link-hover">About Us</a>
+                    <a className="link link-hover">Contact Us</a>
+                    <a className="link link-hover">Privacy Policy</a>
+                    <a className="link link-hover">Terms of Services</a>
                 </nav>
             </footer>
             <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">

@@ -1,15 +1,15 @@
-import { useContext } from "react";
+import { updateProfile } from "firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import registerImg from "../../assets/adopt-a-pet/registerImage.jpg";
-import { AuthContext } from "../../authProvider/AuthProvider";
 import auth from "../../firebase/firebase.conf";
+import useAuth from "../../hooks/auth/useAuth";
 
 
 
 
 const Register = () => {
-  const {registerUser} = useContext(AuthContext)
+  const {registerUser,setUser} = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -19,21 +19,24 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    registerUser(email, password)
-      .then(() => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Sign Up Success",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        updateProfile(auth.currentUser, {
+    registerUser (email, password)
+      .then(async(res) => {
+        setUser(res.data)
+        console.log('User registration');
+         await updateProfile(auth.currentUser, {
           displayName: name,
-        });
-        navigate("/");
+        }).then(()=>{
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Sign Up Success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        })
       })
-      .then((err) => console.log(err));
+     
   };
 
   return (

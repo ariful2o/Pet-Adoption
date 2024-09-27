@@ -13,9 +13,12 @@ import {
     MdOutlineRateReview,
 } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/isAdmin/useAdmin";
 
 export default function Dashboard() {
-    const isAdmin = true;
+    const [isAdmin,isPending]=useAdmin();
+    console.log(isAdmin);
+    // const isAdmin = true;
     return (
         <div className="flex">
             <div className="">

@@ -33,37 +33,55 @@ export default function AuthProvider({ children }) {
         showConfirmButton: false,
         timer: 1000,
       });
-      setUser(null);
-      setLoading(false); // Set loading to false after sign out
+      // setUser(null);
+      // setLoading(false); // Set loading to false after sign out
     });
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setLoading(true); // Start loading state
+      setUser(currentUser);
+
+      // Get user information if user is logged in
+      const loginEmail = {email:currentUser?.email || user.email};
+      const loginName = {name:currentUser?.displayName || user.displayName};
+
+      // console.log(currentUser, '=======');
+
+
+      const details = { name: loginName.name, email: loginEmail.email }
       if (currentUser) {
-        setUser(currentUser);
-        const loginEmail = { email: currentUser.email };
-        
         axiosSecure.post('/jwt', loginEmail)
           .then((res) => {
-            console.log('jwt', res.data);
-            setLoading(false); // End loading when done
-          }).catch(err => {
-            console.error(err);
-            setLoading(false); // End loading on error
-          });
+            // console.log('jwt', res.data);
+            // setLoading(false); // End loading when done
+
+
+            // add user database
+            axiosPublic.post("/user", details)
+              .then((response) => {
+                console.log(response, '----');
+              })
+
+          })
       } else {
-        setUser(null);
-        setLoading(false); // End loading when user is null
+        axiosSecure.post("/logout",loginEmail)
+        then(()=>{
+          console.log('logout success');
+          // setLoading(false); // End loading when done
+        })
       }
     });
     return () => unSubscribe();
-  }, [axiosSecure]); // Dependency on axiosSecure
+  }, [user, axiosSecure]); // Dependency on axiosSecure
+
 
   const authinfo = {
     user,
+    setUser,
     loading,
+    setLoading,
     logOutUser,
     registerUser,
     loginUser,

@@ -1,16 +1,13 @@
-import { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import loginImg from "../../assets/adopt-a-pet/Adopt_a_Pet8_generated.jpg";
-import { AuthContext } from "../../authProvider/AuthProvider";
-
-
+import useAuth from "../../hooks/auth/useAuth";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser } =useAuth()
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.state.from.pathname);
+  // console.log(location.state.from.pathname);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,10 +24,8 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-
         navigate(location?.state?.from?.pathname ? location?.state?.from?.pathname : "/");
       })
-      .then((err) => console.log(err));
   };
 
   return (

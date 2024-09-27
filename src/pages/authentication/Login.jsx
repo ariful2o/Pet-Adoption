@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import loginImg from "../../assets/adopt-a-pet/Adopt_a_Pet8_generated.jpg";
 import { AuthContext } from "../../authProvider/AuthProvider";
@@ -9,6 +9,8 @@ import { AuthContext } from "../../authProvider/AuthProvider";
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.state.from.pathname);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,8 +27,8 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        
-        navigate("/");
+
+        navigate(location?.state?.from?.pathname ? location?.state?.from?.pathname : "/");
       })
       .then((err) => console.log(err));
   };
@@ -34,7 +36,7 @@ const Login = () => {
   return (
     <div
       className="min-h-screen flex items-center"
-      // style={{ backgroundImage: `url(${})` }}
+    // style={{ backgroundImage: `url(${})` }}
     >
       <div
         className="flex flex-col lg:flex-row-reverse justify-between items-center pb-10 mx-auto max-h-[600px] w-[80%]"
@@ -46,7 +48,7 @@ const Login = () => {
         <div className="card w-full max-w-sm mx-auto">
           <form className="card-body" onSubmit={handleSubmit}>
             <h1 className="text-3xl font-bold text-center ">Login Now!</h1>
-            
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -72,7 +74,7 @@ const Login = () => {
               />
               <label className="label">
                 <a href="#" >
-                 You Don't have an account ?<span className="label-text-alt link link-hover hover:text-red-600 text-lg font-bold"><NavLink to="/register"> Register </NavLink></span>Now !
+                  You Don't have an account ?<span className="label-text-alt link link-hover hover:text-red-600 text-lg font-bold"><NavLink to="/register"> Register </NavLink></span>Now !
                 </a>
               </label>
             </div>

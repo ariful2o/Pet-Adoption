@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Cart({ data }) {
-  console.log(data)
   return (
     <div className="card bg-base-100 w-96 shadow-xl mx-auto">
       <figure className="relative group">

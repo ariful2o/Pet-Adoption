@@ -2,6 +2,7 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 import Dashboard from "../dashboard/Dashboard";
+import PrivateRoute from "../hooks/privateRoute/PrivateRoute";
 import Adoption from "../pages/adoption/Adoption";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
         ]
     },{
         path: "/dashboard",
-        element:<Dashboard></Dashboard>,
+        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         errorElement:<ErrorPage></ErrorPage>,
         children: [
             

@@ -1,13 +1,15 @@
 import { useQuery } from 'react-query';
 import useAxiosPublic from '../axios/useAxiosPublic';
+import useAxiosSecure from '../axios/useAxiosSecure';
 
 export default function useCats() {
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure()
     
     const { data: cats = [], refetch } = useQuery({
         queryKey: ['cats'],
         queryFn: async () => {
-            const response = await axiosPublic.get('/cats');
+            const response = await axiosSecure.get('/cats');
             return response.data;
         },
         refetchInterval: (data) => {

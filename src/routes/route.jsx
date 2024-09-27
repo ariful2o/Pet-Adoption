@@ -1,6 +1,7 @@
 import {
     createBrowserRouter,
 } from "react-router-dom";
+import Dashboard from "../dashboard/Dashboard";
 import Adoption from "../pages/adoption/Adoption";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
@@ -52,6 +53,13 @@ const router = createBrowserRouter([
                 element:<Blogs></Blogs>
             }
         ]
-    },
+    },{
+        path: "/dashboard",
+        element:<Dashboard></Dashboard>,
+        errorElement:<ErrorPage></ErrorPage>,
+        children: [
+            
+        ]
+    }
 ]);
 export default router

@@ -1,6 +1,6 @@
 import React from 'react'
 import Cart from '../../componts/Cart'
-import useCats from '../../hooks/cats/useCars'
+import useCats from '../../hooks/cats/useCats'
 
 export default function CatList() {
   const [cats, refetch] = useCats()

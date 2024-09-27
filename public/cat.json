@@ -1,0 +1,112 @@
+[
+    {
+      "name": "Whiskers",
+      "breed": "Siamese",
+      "age": 2,
+      "weight": 10,
+      "gender": "Male",
+      "description": "Playful and affectionate, loves to cuddle.",
+      "adoptionFee": 100,
+      "status": "Available",
+      "image": "https://example.com/images/whiskers.jpg"
+    },
+    {
+      "name": "Luna",
+      "breed": "Persian",
+      "age": 4,
+      "weight": 8,
+      "gender": "Female",
+      "description": "Calm and gentle, enjoys lounging in sunny spots.",
+      "adoptionFee": 150,
+      "status": "Available",
+      "image": "https://example.com/images/luna.jpg"
+    },
+    {
+      "name": "Mittens",
+      "breed": "Maine Coon",
+      "age": 3,
+      "weight": 15,
+      "gender": "Female",
+      "description": "Sociable and friendly, loves to play with toys.",
+      "adoptionFee": 200,
+      "status": "Available",
+      "image": "https://example.com/images/mittens.jpg"
+    },
+    {
+      "name": "Shadow",
+      "breed": "British Shorthair",
+      "age": 5,
+      "weight": 12,
+      "gender": "Male",
+      "description": "Independent and laid-back, enjoys quiet time.",
+      "adoptionFee": 180,
+      "status": "Adopted",
+      "image": "https://example.com/images/shadow.jpg"
+    },
+    {
+      "name": "Oliver",
+      "breed": "Tabby",
+      "age": 1,
+      "weight": 9,
+      "gender": "Male",
+      "description": "Curious and energetic, loves to explore.",
+      "adoptionFee": 120,
+      "status": "Available",
+      "image": "https://example.com/images/oliver.jpg"
+    },
+    {
+      "name": "Bella",
+      "breed": "Sphynx",
+      "age": 3,
+      "weight": 10,
+      "gender": "Female",
+      "description": "Affectionate and playful, loves to be the center of attention.",
+      "adoptionFee": 250,
+      "status": "Available",
+      "image": "https://example.com/images/bella.jpg"
+    },
+    {
+      "name": "Cleo",
+      "breed": "Bengal",
+      "age": 4,
+      "weight": 11,
+      "gender": "Female",
+      "description": "Active and intelligent, enjoys climbing and playing.",
+      "adoptionFee": 220,
+      "status": "Available",
+      "image": "https://example.com/images/cleo.jpg"
+    },
+    {
+      "name": "Simba",
+      "breed": "Ragdoll",
+      "age": 2,
+      "weight": 14,
+      "gender": "Male",
+      "description": "Laid-back and affectionate, loves being held.",
+      "adoptionFee": 160,
+      "status": "Available",
+      "image": "https://example.com/images/simba.jpg"
+    },
+    {
+      "name": "Nala",
+      "breed": "Norwegian Forest",
+      "age": 5,
+      "weight": 12,
+      "gender": "Female",
+      "description": "Playful and friendly, enjoys interacting with people.",
+      "adoptionFee": 190,
+      "status": "Available",
+      "image": "https://example.com/images/nala.jpg"
+    },
+    {
+      "name": "Tigger",
+      "breed": "Scottish Fold",
+      "age": 3,
+      "weight": 11,
+      "gender": "Male",
+      "description": "Affectionate and playful, loves to be pampered.",
+      "adoptionFee": 170,
+      "status": "Available",
+      "image": "https://example.com/images/tigger.jpg"
+    }
+  ]

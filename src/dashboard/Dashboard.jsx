@@ -26,31 +26,31 @@ export default function Dashboard() {
                                 <li>
                                     <NavLink to="/">
                                         <FaHome />
-                                        admin Home
+                                        Admin Home
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/addItem">
                                         <MdOutlineFoodBank />
-                                        add item
+                                        Add Item
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/manageitems">
                                         <FaList />
-                                        manage items
+                                        Manage Items
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/bookings">
                                         <FaBook />
-                                        Manage bookings
+                                        Manage Bookings
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/users">
                                         <FaUsers />
-                                        all Users
+                                        All Users
                                     </NavLink>
                                 </li>
                             </>

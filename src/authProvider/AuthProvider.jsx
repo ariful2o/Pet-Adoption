@@ -4,12 +4,16 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 import auth from "../firebase/firebase.conf";
+import useAxiosPublic from "../hooks/axios/useAxiosPublic";
+import useAxiosSecure from "../hooks/axios/useAxiosSecure";
 
 export const AuthContext = createContext(null);
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const axiosPublic=useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
 
   //authencaation processing 
   const registerUser = (email, password) => {
@@ -30,30 +34,38 @@ export default function AuthProvider({ children }) {
         showConfirmButton: false,
         timer: 1000,
       });
+      setUser(null);
     });
   }
 
 
   // user status management
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        console.log("Logged in as:", user.email);
-        setUser(user)
-      } else {
-        // User is signed out
-        // ...
-        setUser(null)
-        console.log("Logged out");
-      }
-    });
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
 
-    // unsubscribe on unmount
-    return unsubscribe;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user])
+        const userEmail = currentUser?.email || user?.email
+        const loginEmail = { email: userEmail };
+        if (currentUser) {
+            setUser(currentUser);
+            setLoading(false);
+            // console.log('============>>', currentUser)
+
+            axiosSecure.post('/jwt', loginEmail)
+                .then((res) => {
+                    console.log('jwt',res.data)
+                }).catch(err => console.error(err))
+
+        } else {
+            axiosSecure.post('/logout', loginEmail)
+                .then((res) => {
+                    console.log("Logout user",res.data)
+                    setUser(null);
+                    setLoading(false);
+                }).catch(err => console.error(err));
+        }
+    });
+    return () => unSubscribe();
+}, [user]);
 
   const authinfo = {
     user, loading,

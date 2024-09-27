@@ -8,7 +8,7 @@
       "description": "Playful and affectionate, loves to cuddle.",
       "adoptionFee": 100,
       "status": "Available",
-      "image": "https://example.com/images/whiskers.jpg"
+      "image": "https://images.wagwalkingweb.com/media/daily_wag/blog_articles/hero/1678934108.5188236/everything-you-need-to-know-about-siamese-cats.png"
     },
     {
       "name": "Luna",
@@ -19,7 +19,7 @@
       "description": "Calm and gentle, enjoys lounging in sunny spots.",
       "adoptionFee": 150,
       "status": "Available",
-      "image": "https://example.com/images/luna.jpg"
+      "image": "https://azure.wgp-cdn.co.uk/app-yourcat/posts/iStock-174776419-1.jpg?&format=webp&webp.quality=40&scale=both"
     },
     {
       "name": "Mittens",
@@ -30,7 +30,7 @@
       "description": "Sociable and friendly, loves to play with toys.",
       "adoptionFee": 200,
       "status": "Available",
-      "image": "https://example.com/images/mittens.jpg"
+      "image": "https://www.katdootje.nl/wp-content/uploads/Orange-Maine-Coon.webp"
     },
     {
       "name": "Shadow",
@@ -41,7 +41,7 @@
       "description": "Independent and laid-back, enjoys quiet time.",
       "adoptionFee": 180,
       "status": "Adopted",
-      "image": "https://example.com/images/shadow.jpg"
+      "image": "https://cdn.royalcanin-weshare-online.io/l1bb9noBBKJuub5qBbou/v3/bp-lot-2-british-shorthair-color-activity"
     },
     {
       "name": "Oliver",
@@ -52,7 +52,7 @@
       "description": "Curious and energetic, loves to explore.",
       "adoptionFee": 120,
       "status": "Available",
-      "image": "https://example.com/images/oliver.jpg"
+      "image": "https://www.thesprucepets.com/thmb/uQnGtOt9VQiML2oG2YzAmPErrHo=/5441x0/filters:no_upscale():strip_icc()/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg"
     },
     {
       "name": "Bella",
@@ -63,7 +63,7 @@
       "description": "Affectionate and playful, loves to be the center of attention.",
       "adoptionFee": 250,
       "status": "Available",
-      "image": "https://example.com/images/bella.jpg"
+      "image": "https://cfa.org/wp-content/uploads/2024/08/2020-c05c-BolerMiaoZizi.webp"
     },
     {
       "name": "Cleo",
@@ -74,7 +74,7 @@
       "description": "Active and intelligent, enjoys climbing and playing.",
       "adoptionFee": 220,
       "status": "Available",
-      "image": "https://example.com/images/cleo.jpg"
+      "image": "https://www.tippaws.com/cdn/shop/articles/Bengal_cat_heading.png?v=1708014591"
     },
     {
       "name": "Simba",
@@ -85,7 +85,7 @@
       "description": "Laid-back and affectionate, loves being held.",
       "adoptionFee": 160,
       "status": "Available",
-      "image": "https://example.com/images/simba.jpg"
+      "image": "https://clubcatt.com/cdn/shop/articles/ragdoll-cat-breed.webp?v=1691442856&width=1100"
     },
     {
       "name": "Nala",
@@ -96,7 +96,7 @@
       "description": "Playful and friendly, enjoys interacting with people.",
       "adoptionFee": 190,
       "status": "Available",
-      "image": "https://example.com/images/nala.jpg"
+      "image": "https://www.thesprucepets.com/thmb/c4xUQ9bmuswDR-umoAKTmwH_r-A=/1500x0/filters:no_upscale():strip_icc()/norwegian-forest-cat-4170085-fe84aa86023446c4b64236ddfbdefd2b.jpg"
     },
     {
       "name": "Tigger",
@@ -107,6 +107,6 @@
       "description": "Affectionate and playful, loves to be pampered.",
       "adoptionFee": 170,
       "status": "Available",
-      "image": "https://example.com/images/tigger.jpg"
+      "image": "https://www.petassure.com/petassure/file-streams/page/gyyyeLBsy9JBzjL7K01SFQ0rare-cat-breed-the-scottish-fold.jpg"
     }
   ]

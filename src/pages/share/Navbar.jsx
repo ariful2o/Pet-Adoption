@@ -11,6 +11,7 @@ export default function Navbar() {
   const links = <>
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/doglist'>Dog List</Link></li>
+    <li><Link to='/catlist'>Cat List</Link></li>
     <li><Link to='/shop'>Shop</Link></li>
     <li><Link to='/adoption'>Adoption</Link></li>
     <li><Link to='/breeder'>Breeder</Link></li>

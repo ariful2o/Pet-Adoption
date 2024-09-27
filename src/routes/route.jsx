@@ -6,6 +6,7 @@ import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
 import Blogs from "../pages/blogs/Blogs";
 import Breeder from "../pages/breeder/Breeder";
+import CatList from "../pages/catList/CatList";
 import Contacts from "../pages/contacts/Contacts";
 import DogList from "../pages/dogList/DogList";
 import ErrorPage from "../pages/Error/ErrorPage";
@@ -31,6 +32,9 @@ const router = createBrowserRouter([
             },{
                 path:"/doglist",
                 element:<DogList></DogList>
+            },{
+                path:"/catlist",
+                element:<CatList></CatList>
             },{
                 path:"/shop",
                 element:<Shop></Shop>

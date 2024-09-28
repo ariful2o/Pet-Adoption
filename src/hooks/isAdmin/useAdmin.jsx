@@ -12,7 +12,7 @@ export default function useAdmin() {
         queryFn: async () => {
             if(!user) return false;
             const response=await axiosPublic.get(`/admin/check/${user.email}`)
-            console.log(response.data);
+            // console.log(response.data);
             return response.data
         },
         enabled:!!user,

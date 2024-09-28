@@ -17,8 +17,7 @@ import useAdmin from "../hooks/isAdmin/useAdmin";
 
 export default function Dashboard() {
     const [isAdmin,isPending]=useAdmin();
-    console.log(isAdmin);
-    // const isAdmin = true;
+
     return (
         <div className="flex">
             <div className="">
@@ -66,7 +65,7 @@ export default function Dashboard() {
                             <li>
                                 <NavLink to="/">
                                     <FaHome />
-                                    Home
+                                    Add a pet
                                 </NavLink>
                             </li>
                             <li>
@@ -109,3 +108,9 @@ export default function Dashboard() {
         </div>
     )
 }
+1. 
+2. My added pets
+3. Adoption Request
+4. Create Donation Campaign
+5. My Donation Campaigns
+6. My Donations

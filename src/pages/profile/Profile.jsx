@@ -1,5 +1,7 @@
 import { async } from '@firebase/util';
+import { updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import Dropzone from '../../componts/DropZone';
 import auth from '../../firebase/firebase.conf';
 import { uploadToImgbb } from '../../hooks/imageUpload/useImageUpload';
@@ -10,7 +12,7 @@ export default function Profile() {
 
     const handleFileChange = (file) => {
         setFile(file); // Update the file state in the parent
-        console.log("File received in parent:", file);
+        // console.log("File received in parent:", file);
     };
 
     const toggleDropdown = () => {
@@ -18,12 +20,13 @@ export default function Profile() {
     };
 
     const user = auth?.currentUser;
+
     // The user object has basic properties such as display name, email, etc.
     const displayName = user?.displayName;
     const email = user?.email;
     const photoURL = user?.photoURL;
 
-    console.log(displayName, email,);
+    // console.log(displayName, email,);
 
 
     const handleUpdate = async (e) => {
@@ -32,13 +35,29 @@ export default function Profile() {
         const name = form.name.value;
         const email = form.email.value;
 
-
-        const information = { name, email, file }
-        console.log(file)
-
         // file uploade imgbb
-        const imgUpliadIMFBB=await uploadToImgbb(file)
-        console.log('Image uploaded successfully: get ', imgUpliadIMFBB);
+        const imgUpliadIMGBB = await uploadToImgbb(file)
+        // console.log('Image uploaded successfully:', imgUpliadIMGBB);
+
+        const information = { name, email, photoURL: imgUpliadIMGBB }
+        console.log(information)
+
+        // update user profile firebase
+        const updateUserProfile= await updateProfile(auth.currentUser, {
+            displayName:name, photoURL: imgUpliadIMGBB
+          }).then(() => {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Profile updated sucessfull",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              document.getElementById('my_modal_2').close()
+          })
+
+
+
     }
 
     return (
@@ -78,7 +97,7 @@ export default function Profile() {
                 )}
             </div>
             <div className="flex flex-col items-center pb-10">
-                <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image" />
+                <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src={photoURL} alt="Bonnie image" />
                 <h5 className="mb-1 text-xl font-medium text-gray-900 ">{displayName}</h5>
                 <span className="text-sm text-gray-500 dark:text-gray-400">{email}</span>
                 <div className="flex mt-4 md:mt-6">

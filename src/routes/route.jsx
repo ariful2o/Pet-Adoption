@@ -1,5 +1,5 @@
 import {
-    createBrowserRouter,
+    createBrowserRouter
 } from "react-router-dom";
 import AllUsers from "../dashboard/admin/AllUsers";
 import Dashboard from "../dashboard/Dashboard";
@@ -11,6 +11,7 @@ import Blogs from "../pages/blogs/Blogs";
 import Breeder from "../pages/breeder/Breeder";
 import CatList from "../pages/catList/CatList";
 import Contacts from "../pages/contacts/Contacts";
+import Details from "../pages/details/Details";
 import DogList from "../pages/dogList/DogList";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/home/Home";
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
                 element:<DogList></DogList>
             },{
                 path:"/catlist",
-                element:<CatList></CatList>
+                element:<CatList></CatList>,
             },{
+                path: "/:path/:id",
+                element: <Details />,
+                loader: ({ params }) => fetch(`http://localhost:5000/${params.path}/${params.id}`)
+              },{
                 path:"/shop",
                 element:<Shop></Shop>
             },{

@@ -1,6 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export default function Cart({ data }) {
+
+  const location = useLocation();
+  
+  // Extract the path based on the current pathname
+  const pathSegments = location.pathname.split('/'); // Split the pathname
+  const path = pathSegments[1] // Get the second-to-last segment
+  const id = data._id;
+  
+console.log(path,id);
   return (
     <div className="card bg-base-100 w-96 shadow-xl mx-auto">
       <figure className="relative group">
@@ -29,8 +39,11 @@ export default function Cart({ data }) {
           <h4 className=""><span className=" font-bold">Age:</span> {data.age} years</h4>
           <h4 className=""><span className=" font-bold">Adoption Fee:</span> ${data.adoptionFee}</h4>
         </div>
+        {/* /details/:path/:id */}
         <div className="card-actions justify-end cursor-pointer">
-          <div className="badge badge-outline badge-success">Details</div>
+          <div className="badge badge-outline badge-success">
+          <NavLink to={`/${path}/${id}`}>Details</NavLink>
+          </div>
           <div className="badge badge-outline badge-primary">Adopt Now</div>
         </div>
       </div>

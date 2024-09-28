@@ -15,6 +15,7 @@ import Details from "../pages/details/Details";
 import DogList from "../pages/dogList/DogList";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/home/Home";
+import Profile from "../pages/profile/Profile";
 import Root from "../pages/root/Root";
 import Shop from "../pages/shop/Shop";
 
@@ -43,6 +44,9 @@ const router = createBrowserRouter([
                 path: "/:path/:id",
                 element: <Details />,
                 loader: ({ params }) => fetch(`http://localhost:5000/${params.path}/${params.id}`)
+              },{
+                path:"/profile",
+                element:<Profile></Profile>
               },{
                 path:"/shop",
                 element:<Shop></Shop>

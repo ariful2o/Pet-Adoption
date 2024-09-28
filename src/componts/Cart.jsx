@@ -9,8 +9,7 @@ export default function Cart({ data }) {
   const pathSegments = location.pathname.split('/'); // Split the pathname
   const path = pathSegments[1] // Get the second-to-last segment
   const id = data._id;
-  
-console.log(path,id);
+
   return (
     <div className="card bg-base-100 w-96 shadow-xl mx-auto">
       <figure className="relative group">
@@ -44,7 +43,7 @@ console.log(path,id);
           <div className="badge badge-outline badge-success">
           <NavLink to={`/${path}/${id}`}>Details</NavLink>
           </div>
-          <div className="badge badge-outline badge-primary">Adopt Now</div>
+          {/* <div className="badge badge-outline badge-primary">Adopt Now</div> */}
         </div>
       </div>
     </div>

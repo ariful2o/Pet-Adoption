@@ -42,14 +42,16 @@ export default function AuthProvider({ children }) {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setLoading(true); // Start loading state
       setUser(currentUser);
-
+      setLoading(false); // End loading when done
+      
+      
       // Get user information if user is logged in
       const loginEmail = { email: currentUser?.email || user.email };
       const loginName = { name: currentUser?.displayName || user.displayName };
-
+      
       // console.log(currentUser, '=======');
-
-
+      
+      
       const details = { name: loginName.name, email: loginEmail.email }
       if (currentUser) {
         axiosSecure.post('/jwt', loginEmail)
@@ -69,7 +71,7 @@ export default function AuthProvider({ children }) {
         axiosSecure.post("/logout", loginEmail)
         then(() => {
           console.log('logout success');
-          // setLoading(false); // End loading when done
+          setLoading(false); // End loading when done
         })
       }
     });

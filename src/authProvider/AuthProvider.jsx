@@ -44,8 +44,8 @@ export default function AuthProvider({ children }) {
       setUser(currentUser);
 
       // Get user information if user is logged in
-      const loginEmail = {email:currentUser?.email || user.email};
-      const loginName = {name:currentUser?.displayName || user.displayName};
+      const loginEmail = { email: currentUser?.email || user.email };
+      const loginName = { name: currentUser?.displayName || user.displayName };
 
       // console.log(currentUser, '=======');
 
@@ -66,8 +66,8 @@ export default function AuthProvider({ children }) {
 
           })
       } else {
-        axiosSecure.post("/logout",loginEmail)
-        then(()=>{
+        axiosSecure.post("/logout", loginEmail)
+        then(() => {
           console.log('logout success');
           // setLoading(false); // End loading when done
         })

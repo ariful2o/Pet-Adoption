@@ -1,17 +1,18 @@
 import {
-    FaBook,
-    FaCalendarAlt,
-    FaCalendarCheck,
-    FaHome,
-    FaList,
-    FaShoppingCart,
-    FaUsers,
+    FaBook, FaHome,
+    FaList, FaUsers
 } from "react-icons/fa";
+import { FcHome } from "react-icons/fc";
+import { FaSackDollar } from "react-icons/fa6";
+import { HiViewGridAdd } from "react-icons/hi";
+import { IoIosGitPullRequest } from "react-icons/io";
+import { LiaDonateSolid } from "react-icons/lia";
 import {
-    MdOutlineFoodBank,
-    MdOutlinePayment,
-    MdOutlineRateReview,
+    MdOutlineCampaign,
+    MdOutlineFoodBank, MdPets, MdPlaylistAddCheckCircle
 } from "react-icons/md";
+
+import { SiBookmyshow } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/isAdmin/useAdmin";
 
@@ -22,7 +23,7 @@ export default function Dashboard() {
         <div className="flex">
             <div className="">
                 {isAdmin &&
-                    <div className="bg-[#28282f] max-w-60 p-5  text-white">
+                    <div className="bg-[#28282f] max-w-60 p-1  text-white">
                         <ul className="space-y-4 menu uppercase">
                             <>
                                 <li>
@@ -32,21 +33,15 @@ export default function Dashboard() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/addItem">
-                                        <MdOutlineFoodBank />
-                                        Add Item
-                                    </NavLink>
-                                </li>
-                                <li>
                                     <NavLink to="/dashboard/manageitems">
                                         <FaList />
-                                        Manage Items
+                                        All Pets
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/bookings">
-                                        <FaBook />
-                                        Manage Bookings
+                                      <FaSackDollar />
+                                        All Donations 
                                     </NavLink>
                                 </li>
                                 <li>
@@ -64,38 +59,44 @@ export default function Dashboard() {
                         <>
                             <li>
                                 <NavLink to="/">
-                                    <FaHome />
+                                   <FcHome />
+                                    Home
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/">
+                                   <MdPets />
                                     Add a pet
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/">
-                                    <FaCalendarAlt />
-                                    reservation
+                                    <MdPlaylistAddCheckCircle />
+                                    My added pets
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/paymenthistory">
-                                    <MdOutlinePayment />
-                                    Payment History
+                                    <IoIosGitPullRequest />
+                                    Adoption Request
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/mycart">
-                                    <FaShoppingCart />
-                                    My Cart
+                                   <MdOutlineCampaign  />
+                                  Create Donation Campaign
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/">
-                                    <MdOutlineRateReview />
-                                    add review
+                                   <SiBookmyshow />
+                                     My Donation Campaigns
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/">
-                                    <FaCalendarCheck />
-                                    my booking
+                                   <LiaDonateSolid />
+                                    My Donations
                                 </NavLink>
                             </li>
                         </>
@@ -108,9 +109,3 @@ export default function Dashboard() {
         </div>
     )
 }
-1. 
-2. My added pets
-3. Adoption Request
-4. Create Donation Campaign
-5. My Donation Campaigns
-6. My Donations

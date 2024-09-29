@@ -21,6 +21,7 @@
     "react-query": "^3.39.3",
     "react-router-dom": "^6.25.1",
     "react-select": "^5.8.1",
+    "react-tooltip": "^5.28.0",
     "sweetalert2": "^11.14.1"
   },
   "devDependencies": {

@@ -63,7 +63,7 @@ export default function AuthProvider({ children }) {
             // add user database
             axiosPublic.post("/user", details)
               .then((response) => {
-                console.log(response, '----');
+                // console.log(response, '----');
               })
 
           })

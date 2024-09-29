@@ -33,13 +33,13 @@ export default function Dashboard() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/manageitems">
+                                    <NavLink to="">
                                         <FaList />
                                         All Pets
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/bookings">
+                                    <NavLink to="">
                                       <FaSackDollar />
                                         All Donations 
                                     </NavLink>
@@ -64,37 +64,37 @@ export default function Dashboard() {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">
+                                <NavLink to="/dashboard/addpet">
                                    <MdPets />
                                     Add a pet
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">
+                                <NavLink to="">
                                     <MdPlaylistAddCheckCircle />
                                     My added pets
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/paymenthistory">
+                                <NavLink to="">
                                     <IoIosGitPullRequest />
                                     Adoption Request
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/mycart">
+                                <NavLink to="">
                                    <MdOutlineCampaign  />
                                   Create Donation Campaign
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">
+                                <NavLink to="">
                                    <SiBookmyshow />
                                      My Donation Campaigns
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">
+                                <NavLink to="">
                                    <LiaDonateSolid />
                                     My Donations
                                 </NavLink>

@@ -5,9 +5,11 @@ import Swal from 'sweetalert2';
 import Dropzone from '../../componts/DropZone';
 import auth from '../../firebase/firebase.conf';
 import { uploadToImgbb } from '../../hooks/imageUpload/useImageUpload';
+import useUser from '../../hooks/userInfo/useUser';
 
 export default function Profile() {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const { displayName, email, photoURL }=useUser()
     const [file, setFile] = useState(null);
 
     const handleFileChange = (file) => {
@@ -19,16 +21,6 @@ export default function Profile() {
         setDropdownOpen(!isDropdownOpen);
     };
 
-    const user = auth?.currentUser;
-
-    // The user object has basic properties such as display name, email, etc.
-    const displayName = user?.displayName;
-    const email = user?.email;
-    const photoURL = user?.photoURL;
-
-    // console.log(displayName, email,);
-
-
     const handleUpdate = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -39,33 +31,29 @@ export default function Profile() {
         const imgUpliadIMGBB = await uploadToImgbb(file)
         // console.log('Image uploaded successfully:', imgUpliadIMGBB);
 
-        const information = { name, email, photoURL: imgUpliadIMGBB }
-        console.log(information)
-
         // update user profile firebase
-        const updateUserProfile= await updateProfile(auth.currentUser, {
-            displayName:name, photoURL: imgUpliadIMGBB
-          }).then(() => {
+        const updateUserProfile = await updateProfile(auth.currentUser, {
+            displayName: name, photoURL: imgUpliadIMGBB
+        }).then(() => {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
                 title: "Profile updated sucessfull",
                 showConfirmButton: false,
                 timer: 1500
-              });
-              document.getElementById('my_modal_2').close()
-          })
-
-
+            });
+            // Close the modal
+            document.getElementById('my_modal_2').close()
+        })
 
     }
 
     return (
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+        <div className="w-full max-w-md mx-auto my-10 bg-white border border-gray-200 rounded-lg shadow ">
             <div className="flex justify-end px-4 pt-4">
                 <button
                     onClick={toggleDropdown}
-                    className="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+                    className=" fixed text-gray-500 dark:text-gray-400 hover:bg-gray-100  focus:ring-1 focus:outline-none rounded-lg text-sm p-1.5"
                     type="button"
                 >
                     <span className="sr-only">Open dropdown</span>
@@ -81,17 +69,18 @@ export default function Profile() {
                 </button>
                 {/* Dropdown menu */}
                 {isDropdownOpen && (
-                    <div className="z-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <div className="z-10 fixed text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 mr-9">
                         <ul className="py-2">
                             <li>
-                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Edit</a>
+                                <a onClick={() => document.getElementById('my_modal_2').showModal()} href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Edit</a>
                             </li>
                             <li>
                                 <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Export Data</a>
                             </li>
                             <li>
-                                <a href="#" className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 ">Delete</a>
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Log Out</a>
                             </li>
+                           
                         </ul>
                     </div>
                 )}

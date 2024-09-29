@@ -1,20 +1,42 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
+import useUser from '../../hooks/userInfo/useUser';
 
 export default function Details() {
     const details = useLoaderData()
+    const { displayName, email, photoURL } = useUser()
+    const axiosSecure = useAxiosSecure()
+
     const { age, adoptionFee, image, breed, description, gender, status, weight, name, _id } = details
 
     const handleAdopt = (e) => {
         e.preventDefault();
-    const form = e.target;
-    const name=form.name.value;
-    const email=form.email.value;
-    const phone=form.phone.value;
-    const address = form.address.value;
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const address = form.address.value;
 
-    const information={name,email,phone,address}
-    console.log(information)
+        const information = { name, email, phone, address, petId: _id,date: new Date() }
+        console.log(information)
+        // Send the information to the server for adoption
+        axiosSecure.post('/pets/adoption', information)
+            .then((res) => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your Request has been successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                document.getElementById('my_modal_2').close()
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
     }
 
     return (
@@ -58,11 +80,11 @@ export default function Details() {
                                 <label className="label">
                                     <span className="label-text">User Name</span>
                                 </label>
-                                <input name='name' type="text" placeholder="Name" className="input input-bordered" required />
+                                <input name='name' defaultValue={displayName} type="text" placeholder="Name" className="input input-bordered" required disabled />
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+                                <input name='email' defaultValue={email} type="email" placeholder="email" className="input input-bordered" required disabled />
                             </div>
                             <div className="form-control">
                                 <label className="label">

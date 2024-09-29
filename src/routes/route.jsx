@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import AllUsers from "../dashboard/admin/AllUsers";
 import Dashboard from "../dashboard/Dashboard";
+import AddPet from "../dashboard/user/AddPet";
 import PrivateRoute from "../hooks/privateRoute/PrivateRoute";
 import Adoption from "../pages/adoption/Adoption";
 import Login from "../pages/authentication/Login";
@@ -69,9 +70,15 @@ const router = createBrowserRouter([
         element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         errorElement:<ErrorPage></ErrorPage>,
         children: [
+            // admin routes
             {
                 path:"/dashboard/users",
                 element:<PrivateRoute><AllUsers></AllUsers></PrivateRoute>
+            },
+            // user routes
+            {
+                path:"/dashboard/addpet",
+                element:<PrivateRoute><AddPet></AddPet></PrivateRoute>
             }
         ]
     }

@@ -4,6 +4,7 @@ import useCats from '../../hooks/cats/useCats'
 
 export default function CatList() {
   const [cats, refetch] = useCats()
+  console.log(cats);
   return (
     <div className='grid grid-cols-1 lg:grid-cols-3 gap-9'>
       {cats.map((cat) => {

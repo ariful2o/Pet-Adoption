@@ -138,7 +138,9 @@ const AddPet = () => {
               </div>
 
               <div className="mb-4 w-full">
-                <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender:</label>
+                <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender:
+                <span className="text-red-400"></span>
+                </label>
                 <Select
                   name="gender"
                   options={petGender}

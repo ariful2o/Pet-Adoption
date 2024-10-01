@@ -4,6 +4,7 @@ import {
 import AllUsers from "../dashboard/admin/AllUsers";
 import Dashboard from "../dashboard/Dashboard";
 import AddPet from "../dashboard/user/AddPet";
+import AdoptRequest from "../dashboard/user/AdoptRequest";
 import MyaddPet from "../dashboard/user/MyaddPet";
 import UpdatePet from "../dashboard/user/UpdatePet";
 import PrivateRoute from "../hooks/privateRoute/PrivateRoute";
@@ -87,6 +88,9 @@ const router = createBrowserRouter([
             },{
                 path:"/dashboard/updatepet/:id",
                 element:<PrivateRoute><UpdatePet /></PrivateRoute>
+            },{
+                path:"/dashboard/adoprionrequest",
+                element:<PrivateRoute><AdoptRequest /></PrivateRoute>
             }
         ]
     }

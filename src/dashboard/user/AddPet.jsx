@@ -1,7 +1,7 @@
-import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import Select from 'react-select';
+import Swal from 'sweetalert2';
 import Dropzone from '../../componts/DropZone';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
 import { uploadToImgbb } from '../../hooks/imageUpload/useImageUpload';
@@ -60,7 +60,7 @@ const AddPet = () => {
           if (!values.longDescription) errors.longDescription = 'Required';
           return errors;
         }}
-        onSubmit={async (values, { setSubmitting, setFieldError }) => {
+        onSubmit={async (values, { setSubmitting, setFieldError, resetForm }) => {
           try {
             // console.log('File:', file);
             // console.log('Form Values:', values);
@@ -74,8 +74,20 @@ const AddPet = () => {
               author: { displayName, email, photoURL }
             };
 
-          const result = await axiosSecure.post("/addpet",petData)
-          console.log(result.data);
+            const result = await axiosSecure.post("/addpet", petData)
+            if (result.data.acknowledged) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your Pet has been saved",
+                showConfirmButton: false,
+                timer: 1500
+              });
+
+              // Reset the form after successful submission
+              resetForm();
+              // setFile(null)
+            }
           } catch (error) {
             console.error('Error adding pet:', error);
             setFieldError('submit', 'Error adding pet. Please try again.');

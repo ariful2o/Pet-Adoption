@@ -5,7 +5,10 @@ import AllUsers from "../dashboard/admin/AllUsers";
 import Dashboard from "../dashboard/Dashboard";
 import AddPet from "../dashboard/user/AddPet";
 import AdoptRequest from "../dashboard/user/AdoptRequest";
+import DonationForm from "../dashboard/user/DonationForm";
+import EditDonationForm from "../dashboard/user/EditDonationForm";
 import MyaddPet from "../dashboard/user/MyaddPet";
+import MyCampaigns from "../dashboard/user/MyCampaigns";
 import UpdatePet from "../dashboard/user/UpdatePet";
 import PrivateRoute from "../hooks/privateRoute/PrivateRoute";
 import Adoption from "../pages/adoption/Adoption";
@@ -91,6 +94,15 @@ const router = createBrowserRouter([
             },{
                 path:"/dashboard/adoprionrequest",
                 element:<PrivateRoute><AdoptRequest /></PrivateRoute>
+            },{
+                path:"/dashboard/donationform",
+                element:<PrivateRoute><DonationForm /></PrivateRoute>
+            },{
+                path:"/dashboard/mycampaigns",
+                element:<PrivateRoute><MyCampaigns /></PrivateRoute>
+            },{
+                path:"/dashboard/editdonationform",
+                element:<PrivateRoute><EditDonationForm /></PrivateRoute>
             }
         ]
     }

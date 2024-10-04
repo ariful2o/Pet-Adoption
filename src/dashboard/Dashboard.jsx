@@ -82,13 +82,13 @@ export default function Dashboard() {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="">
+                                <NavLink to="/dashboard/donationform">
                                    <MdOutlineCampaign  />
                                   Create Donation Campaign
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="">
+                                <NavLink to="/dashboard/mycampaigns">
                                    <SiBookmyshow />
                                      My Donation Campaigns
                                 </NavLink>

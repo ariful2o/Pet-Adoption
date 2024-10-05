@@ -15,11 +15,12 @@ import Adoption from "../pages/adoption/Adoption";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
 import Blogs from "../pages/blogs/Blogs";
-import Breeder from "../pages/breeder/Breeder";
 import CatList from "../pages/catList/CatList";
 import Contacts from "../pages/contacts/Contacts";
 import Details from "../pages/details/Details";
 import DogList from "../pages/dogList/DogList";
+import DonationCampaigns from "../pages/donationCampaigns/DonationCampaigns";
+import DonationDetails from "../pages/donationCampaigns/DonationDetails";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/home/Home";
 import Profile from "../pages/profile/Profile";
@@ -61,8 +62,12 @@ const router = createBrowserRouter([
                 path:"/adoption",
                 element:<Adoption></Adoption>
             },{
-                path:"/breeder",
-                element:<Breeder></Breeder>
+                path:"DonationCampaigns",
+                element:<DonationCampaigns></DonationCampaigns>
+            },{
+                path:"/DonationCampaigns/donationDetails/:id",
+                element:<PrivateRoute><DonationDetails /></PrivateRoute>,
+                // loader: ({ params }) => fetch(`http://localhost:5000/donationCampaigns/${params.id}`)
             },{
                 path:"/Contacts",
                 element:<Contacts></Contacts>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import useMyCamapaigns from "../../hooks/myCampaigns/useMyCamapaigns";
 // Sample Data for campaigns
 const campaigns = [
   {
@@ -30,6 +30,9 @@ const campaigns = [
 const MyCampaigns = () => {
   const [donators, setDonators] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const { mycampaigns, refetch, isLoading, isError }=useMyCamapaigns()
+  
+// console.log(mycampaigns)
 
   const toggleModal = (donatorsList) => {
     setDonators(donatorsList);
@@ -52,6 +55,7 @@ const MyCampaigns = () => {
         <table className="w-full table-auto border-collapse border border-gray-300">
           <thead className="bg-gray-200">
             <tr>
+              <th className="border border-gray-300 p-4 text-left">Image</th>
               <th className="border border-gray-300 p-4 text-left">Pet Name</th>
               <th className="border border-gray-300 p-4 text-left">Max Donation Amount</th>
               <th className="border border-gray-300 p-4 text-left">Progress</th>
@@ -59,10 +63,11 @@ const MyCampaigns = () => {
             </tr>
           </thead>
           <tbody>
-            {campaigns.map((campaign) => (
+            {mycampaigns.map((campaign) => (
               <tr key={campaign.id} className="text-gray-700">
+                <td><img className="w-28 h-20" src={campaign.petPicture} alt="" /></td>
                 <td className="border border-gray-300 p-4">{campaign.petName}</td>
-                <td className="border border-gray-300 p-4">${campaign.maxDonation}</td>
+                <td className="border border-gray-300 p-4">${campaign.maxDonationAmount}</td>
                 <td className="border border-gray-300 p-4">
                   <div className="relative w-full bg-gray-300 rounded-full h-4">
                     <div

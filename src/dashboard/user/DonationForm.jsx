@@ -1,5 +1,6 @@
 import { async } from "@firebase/util";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Dropzone from "../../componts/DropZone";
 import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
@@ -10,13 +11,14 @@ const DonationForm = () => {
     const [file, setFile] = useState(null);
     const { displayName, email, photoURL }=useUser()
   const [formData, setFormData] = useState({
-    petPicture: null,
+    petName: "",
     maxDonationAmount: "",
     lastDate: "",
     shortDescription: "",
     longDescription: "",
   });
   const axiosSecure=useAxiosSecure()
+  const navigate=useNavigate()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +36,7 @@ const DonationForm = () => {
     e.preventDefault();
     const uplodeImageIMGBB= await uploadToImgbb(file)
     const createCampainData={...formData,petPicture:uplodeImageIMGBB}
-    // console.log("Form Data Submitted:", {...formData,petPicture:uplodeImageIMGBB});
+    console.log("Form Data Submitted:",createCampainData);
 
     const createCampain= await axiosSecure.post("/createcampain",createCampainData)
     if (createCampain.data.acknowledged) {
@@ -45,6 +47,7 @@ const DonationForm = () => {
         showConfirmButton: false,
         timer: 1500
       });
+      navigate("/dashboard/mycampaigns")
     }
   };
 
@@ -64,6 +67,19 @@ const DonationForm = () => {
               <Dropzone onFileChange={handleFileChange} />
             </div>
 
+            {/* Maximum Donation Amount */}
+            <div className="flex items-center">
+              <label className="block text-gray-700 font-semibold w-1/3">
+                   Pet Name
+              </label>
+              <input
+                type="text"
+                name="petName"
+                value={formData.petName}
+                onChange={handleInputChange}
+                className="w-2/3 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 bg-gray-50 shadow-inner"
+              />
+            </div>
             {/* Maximum Donation Amount */}
             <div className="flex items-center">
               <label className="block text-gray-700 font-semibold w-1/3">

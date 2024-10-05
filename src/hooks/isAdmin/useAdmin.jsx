@@ -16,8 +16,8 @@ export default function useAdmin() {
             return response.data
         },
         enabled:!!user,
-        staleTime:1000*60*5, // 5 minutes
-        refetchInterval:1000*60*5, // 5 minutes
+        staleTime:10000, 
+        refetchInterval:10000,
     })
   return [isAdmin,isPending]
 }

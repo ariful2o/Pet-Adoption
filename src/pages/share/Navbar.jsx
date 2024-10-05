@@ -14,7 +14,7 @@ export default function Navbar() {
     <li><Link to='/catlist'>Cat List</Link></li>
     <li><Link to='/shop'>Shop</Link></li>
     <li><Link to='/adoption'>Adoption</Link></li>
-    <li><Link to='/breeder'>Breeder</Link></li>
+    <li><Link to='/DonationCampaigns'>Donation Campaigns</Link></li>
     <li><Link to='/blog'>Blogs</Link></li>
     <li><Link to='/contacts'>Contacts</Link></li>
     <li><Link to='/dashboard'>Dashboard</Link></li>

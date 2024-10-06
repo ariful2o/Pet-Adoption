@@ -1,46 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 import useMyCamapaigns from "../../hooks/myCampaigns/useMyCamapaigns";
-// Sample Data for campaigns
-const campaigns = [
-  {
-    id: 1,
-    petName: "Buddy",
-    maxDonation: 1000,
-    currentDonation: 600,
-    isPaused: false,
-    donators: [
-      { name: "John", amount: 200 },
-      { name: "Sarah", amount: 150 },
-      { name: "Mike", amount: 250 },
-    ],
-  },
-  {
-    id: 2,
-    petName: "Max",
-    maxDonation: 2000,
-    currentDonation: 500,
-    isPaused: true,
-    donators: [
-      { name: "Alice", amount: 300 },
-      { name: "David", amount: 200 },
-    ],
-  },
-];
+import useMyDonations from "../../hooks/myDonations/useMyDonations";
 
 const MyCampaigns = () => {
   const [donators, setDonators] = useState([]);
+  const [totalAmounts, setTotalAmounts] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const { mycampaigns, refetch, isLoading, isError }=useMyCamapaigns()
-  
-// console.log(mycampaigns)
+  const { mycampaigns, refetch, isLoading, isError } = useMyCamapaigns();
+  const [myDonations] = useMyDonations();
+  const axiosSecure = useAxiosSecure();
 
-  const toggleModal = (donatorsList) => {
-    setDonators(donatorsList);
-    setShowModal(!showModal);
+  // Fetch total amounts for each campaign when mycampaigns changes
+  useEffect(() => {
+    const fetchTotalAmounts = async () => {
+      const amounts = {};
+      for (const campaign of mycampaigns) {
+        try {
+          const response = await axiosSecure.get(`/mycampaigns-donators?id=${campaign._id}`);
+          const totalAmount = response.data.reduce((acc, campaign) => {
+            const campaignTotal = campaign.donators.reduce((sum, donator) => {
+              return sum + parseFloat(donator.amount); // Convert amount to float
+            }, 0);
+            return acc + campaignTotal;
+          }, 0);
+          amounts[campaign._id] = totalAmount; // Store the total amount by campaign ID
+        } catch (error) {
+          console.error("Error fetching donators for campaign:", campaign._id, error);
+        }
+      }
+      setTotalAmounts(amounts); // Set the total amounts state
+    };
+
+    if (mycampaigns.length) {
+      fetchTotalAmounts();
+    }
+  }, [mycampaigns, axiosSecure]);
+
+  if (isLoading) return <div>Loading...</div>;
+
+  const toggleModal = async (id) => {
+    try {
+      console.log("Campaign ID:", id);
+      const response = await axiosSecure.get(`/mycampaigns-donators?id=${id}`);
+      const donatorsList = response.data.length > 0 ? response.data[0].donators : [];
+      console.log("Donators Data:", donatorsList);
+      setDonators(donatorsList);
+      setShowModal(!showModal);
+    } catch (error) {
+      console.error("Error fetching donators:", error);
+    }
   };
 
   const handlePauseToggle = (id) => {
-    // Logic for pausing/unpausing a campaign can go here
     console.log(`Toggled pause for campaign ID: ${id}`);
   };
 
@@ -51,7 +63,6 @@ const MyCampaigns = () => {
           My Donation Campaigns
         </h2>
 
-        {/* Table */}
         <table className="w-full table-auto border-collapse border border-gray-300">
           <thead className="bg-gray-200">
             <tr>
@@ -63,48 +74,49 @@ const MyCampaigns = () => {
             </tr>
           </thead>
           <tbody>
-            {mycampaigns.map((campaign) => (
-              <tr key={campaign.id} className="text-gray-700">
-                <td><img className="w-28 h-20" src={campaign.petPicture} alt="" /></td>
-                <td className="border border-gray-300 p-4">{campaign.petName}</td>
-                <td className="border border-gray-300 p-4">${campaign.maxDonationAmount}</td>
-                <td className="border border-gray-300 p-4">
-                  <div className="relative w-full bg-gray-300 rounded-full h-4">
-                    <div
-                      className="absolute top-0 left-0 h-4 bg-blue-500 rounded-full"
-                      style={{
-                        width: `${(campaign.currentDonation / campaign.maxDonation) * 100}%`,
-                      }}
-                    ></div>
-                  </div>
-                  <span className="text-sm ml-2">
-                    ${campaign.currentDonation} / ${campaign.maxDonation}
-                  </span>
-                </td>
-                <td className="border border-gray-300 p-4 flex justify-center space-x-4">
-                  <button
-                    onClick={() => handlePauseToggle(campaign.id)}
-                    className={`px-4 py-1 rounded-full text-white font-semibold ${
-                      campaign.isPaused ? "bg-red-500" : "bg-green-500"
-                    }`}
-                  >
-                    {campaign.isPaused ? "Unpause" : "Pause"}
-                  </button>
-                  <button
-                    onClick={() => console.log("Redirecting to edit page")}
-                    className="px-4 py-1 rounded-full bg-yellow-500 text-white font-semibold"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => toggleModal(campaign.donators)}
-                    className="px-4 py-1 rounded-full bg-blue-500 text-white font-semibold"
-                  >
-                    View Donators
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {mycampaigns.map((campaign) => {
+              const totalAmount = totalAmounts[campaign._id] || 0; // Get the total amount for the current campaign
+              return (
+                <tr key={campaign._id} className="text-gray-700">
+                  <td><img className="w-28 h-20" src={campaign.petPicture} alt="" /></td>
+                  <td className="border border-gray-300 p-4">{campaign.petName}</td>
+                  <td className="border border-gray-300 p-4">${campaign.maxDonationAmount}</td>
+                  <td className="border border-gray-300 p-4">
+                    <div className="relative w-full bg-gray-300 rounded-full h-4">
+                      <div
+                        className="absolute top-0 left-0 h-4 bg-blue-500 rounded-full"
+                        style={{
+                          width: `${(totalAmount / campaign.maxDonationAmount) * 100}%`,
+                        }}
+                      ></div>
+                    </div>
+                    <span className="text-sm ml-2">
+                      ${totalAmount} / ${campaign.maxDonationAmount}
+                    </span>
+                  </td>
+                  <td className="border border-gray-300 p-4 flex justify-center space-x-4">
+                    <button
+                      onClick={() => handlePauseToggle(campaign.id)}
+                      className={`px-4 py-1 rounded-full text-white font-semibold ${campaign.isPaused ? "bg-red-500" : "bg-green-500"}`}
+                    >
+                      {campaign.isPaused ? "Unpause" : "Pause"}
+                    </button>
+                    <button
+                      onClick={() => console.log("Redirecting to edit page")}
+                      className="px-4 py-1 rounded-full bg-yellow-500 text-white font-semibold"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => toggleModal(campaign._id)}
+                      className="px-4 py-1 rounded-full bg-blue-500 text-white font-semibold"
+                    >
+                      View Donators
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
 
@@ -119,7 +131,7 @@ const MyCampaigns = () => {
                     key={index}
                     className="flex justify-between bg-gray-100 p-2 rounded-md shadow-sm"
                   >
-                    <span>{donator.name}</span>
+                    <span>{donator.displayName}</span>
                     <span>${donator.amount}</span>
                   </li>
                 ))}

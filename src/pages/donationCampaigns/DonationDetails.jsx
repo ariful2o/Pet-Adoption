@@ -96,7 +96,7 @@ const DonationDetails = () => {
             />
             {/* Stripe Elements */}
             <Elements stripe={stripePromise}>
-              <CheckoutForm amount={donationAmount} closeModal={closeModal} petName={petName} maxDonationAmount={maxDonationAmount} />
+              <CheckoutForm amount={donationAmount} closeModal={closeModal} petName={petName} maxDonationAmount={maxDonationAmount} campaignId={_id} />
             </Elements>
             <button
               className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 mt-4"

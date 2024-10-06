@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 import useUser from "../../hooks/userInfo/useUser";
 
-const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName}) => {
+const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId}) => {
   const axiosSecure = useAxiosSecure();
   const { displayName, email, photoURL }=useUser()
   const [errorMessage, setErrorMessage] = useState("");
@@ -81,7 +81,8 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName}) => {
           timer: 1500,
         });
         const paymentDetails = {
-          email,
+          email,campaignId,
+          donnerName:displayName,
           petName: petName,
           maxDonation: maxDonationAmount,
           currentDonation: amount,

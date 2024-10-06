@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 import useUser from "../../hooks/userInfo/useUser";
 
-const CheckoutForm = ({amount,closeModal}) => {
+const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName}) => {
   const axiosSecure = useAxiosSecure();
   const { displayName, email, photoURL }=useUser()
   const [errorMessage, setErrorMessage] = useState("");
@@ -82,8 +82,8 @@ const CheckoutForm = ({amount,closeModal}) => {
         });
         const paymentDetails = {
           email,
-          petName:"",
-          maxDonation:"",
+          petName: petName,
+          maxDonation: maxDonationAmount,
           currentDonation: amount,
           isPaused: false,
           donators:[
@@ -95,6 +95,7 @@ const CheckoutForm = ({amount,closeModal}) => {
         };
         const res = await axiosSecure.post("/paymentsucess", paymentDetails);
         console.log(res.data,"Clear the cart");
+        closeModal()
       }
     }
   }

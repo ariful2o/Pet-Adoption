@@ -39,10 +39,10 @@ const DonationDetails = () => {
     <div className="p-6 bg-gray-100 min-h-screen">
       {/* Campaign Details Section */}
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-2">{petName}</h1>
+        <h1 className="text-2xl font-bold mb-2"><span className='text-gray-400'>Pet Name :</span> {petName}</h1>
         <img className='w-full ' src={petPicture} alt="" />
         <p className="text-gray-600 mb-4">Last Date: {lastDate}</p>
-        <p className="text-gray-600 mb-4">Max Donation Amount: {maxDonationAmount}</p>
+        <p className="text-gray-600 mb-4">Max Donation Amount: ${maxDonationAmount}</p>
         <p className="text-gray-700 mb-4">
           {shortDescription}
         </p>
@@ -96,7 +96,7 @@ const DonationDetails = () => {
             />
             {/* Stripe Elements */}
             <Elements stripe={stripePromise}>
-              <CheckoutForm amount={donationAmount} closeModal={closeModal} petName={petName} maxDonationAmount={maxDonationAmount} campaignId={_id} />
+              <CheckoutForm amount={donationAmount} closeModal={closeModal} petName={petName} maxDonationAmount={maxDonationAmount} campaignId={_id} petPicture={petPicture} />
             </Elements>
             <button
               className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 mt-4"

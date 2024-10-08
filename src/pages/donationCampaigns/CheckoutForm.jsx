@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 import useUser from "../../hooks/userInfo/useUser";
 
-const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId}) => {
+const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,petPicture}) => {
   const axiosSecure = useAxiosSecure();
   const { displayName, email, photoURL }=useUser()
   const [errorMessage, setErrorMessage] = useState("");
@@ -70,7 +70,7 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId}) 
     if (confirmError) {
       console.log("confirm error: " + confirmError);
     } else {
-        console.log("success", paymentIntent);
+        // console.log("success", paymentIntent);
       if (paymentIntent.status === "succeeded") {
         setPayId(paymentIntent.id)
         Swal.fire({
@@ -81,7 +81,7 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId}) 
           timer: 1500,
         });
         const paymentDetails = {
-          email,campaignId,
+          email,campaignId,petPicture,
           donnerName:displayName,
           petName: petName,
           maxDonation: maxDonationAmount,
@@ -95,7 +95,7 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId}) 
           status: paymentIntent.status,
         };
         const res = await axiosSecure.post("/paymentsucess", paymentDetails);
-        console.log(res.data,"Clear the cart");
+        // console.log(res.data,"Clear the cart");
         closeModal()
       }
     }

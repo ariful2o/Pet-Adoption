@@ -9,6 +9,7 @@ import DonationForm from "../dashboard/user/DonationForm";
 import EditDonationForm from "../dashboard/user/EditDonationForm";
 import MyaddPet from "../dashboard/user/MyaddPet";
 import MyCampaigns from "../dashboard/user/MyCampaigns";
+import MyDonations from "../dashboard/user/MyDonations";
 import UpdatePet from "../dashboard/user/UpdatePet";
 import PrivateRoute from "../hooks/privateRoute/PrivateRoute";
 import Adoption from "../pages/adoption/Adoption";
@@ -108,6 +109,9 @@ const router = createBrowserRouter([
             },{
                 path:"/dashboard/editdonationform",
                 element:<PrivateRoute><EditDonationForm /></PrivateRoute>
+            },{
+                path:"/dashboard/mydonations",
+                element:<PrivateRoute><MyDonations /></PrivateRoute>
             }
         ]
     }

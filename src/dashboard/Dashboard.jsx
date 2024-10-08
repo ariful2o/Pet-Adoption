@@ -94,7 +94,7 @@ export default function Dashboard() {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="">
+                                <NavLink to="/dashboard/mydonations">
                                    <LiaDonateSolid />
                                     My Donations
                                 </NavLink>

@@ -41,10 +41,10 @@ const MyCampaigns = () => {
 
   const toggleModal = async (id) => {
     try {
-      console.log("Campaign ID:", id);
+      // console.log("Campaign ID:", id);
       const response = await axiosSecure.get(`/mycampaigns-donators?id=${id}`);
       const donatorsList = response.data.length > 0 ? response.data[0].donators : [];
-      console.log("Donators Data:", donatorsList);
+      // console.log("Donators Data:", donatorsList);
       setDonators(donatorsList);
       setShowModal(!showModal);
     } catch (error) {
@@ -68,7 +68,7 @@ const MyCampaigns = () => {
             <tr>
               <th className="border border-gray-300 p-4 text-left">Image</th>
               <th className="border border-gray-300 p-4 text-left">Pet Name</th>
-              <th className="border border-gray-300 p-4 text-left">Max Donation Amount</th>
+              <th className="border border-gray-300 p-4 text-left">Max Donation</th>
               <th className="border border-gray-300 p-4 text-left">Progress</th>
               <th className="border border-gray-300 p-4 text-center">Actions</th>
             </tr>

@@ -1,9 +1,21 @@
+import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
+import useAxiosPublic from "../../hooks/axios/useAxiosPublic";
 import useMyCampaigns from "../../hooks/myCampaigns/useMyCamapaigns";
 
 const DonationCampaigns = () => {
-  const { mycampaigns, refetch, isLoading, isError } = useMyCampaigns()
+  // const { mycampaigns, refetch, isLoading, isError } = useMyCampaigns()
+  const axiosPublic=useAxiosPublic()
 
+  const { data: mycampaigns = [], refetch, isLoading, isError } = useQuery({
+    queryKey: ['donationCampaigns'],
+    queryFn: async () => {
+      const response = await axiosPublic.get('/allcampaigns')
+      return await response.data
+    },
+    refetchInterval: 10000, // refetch every 10 seconds
+    staleTime: 1000 * 60 * 5, // 5 minutes stale
+  })
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading campaigns</div>;
 
@@ -24,9 +36,9 @@ const DonationCampaigns = () => {
                 <p>Last Date: {campaign.lastDate}</p>
                 <p>Max Donation: ${campaign.maxDonationAmount}</p>
                 <NavLink to={`donationDetails/${campaign._id}`}>
-                <button className="mt-2 bg-blue-500 text-white py-2 px-4 rounded ">View Details</button>
+                  <button className="mt-2 bg-blue-500 text-white py-2 px-4 rounded ">View Details</button>
                 </NavLink>
-                  
+
               </div>
             )
           })

@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react";
-import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 import useMyCamapaigns from "../../hooks/myCampaigns/useMyCamapaigns";
-import useMyDonations from "../../hooks/myDonations/useMyDonations";
+import { useQuery } from 'react-query'
+import useAxiosSecure from '../../hooks/axios/useAxiosSecure'
 
-const MyCampaigns = () => {
+export default function AllDonation() {
+  const axiosSecure = useAxiosSecure()
   const [donators, setDonators] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const { mycampaigns, refetch, isLoading, isError } = useMyCamapaigns();
-  // const [myDonations] = useMyDonations();
-  const axiosSecure = useAxiosSecure();
+  
+  const { data: alldonations = [], refetch, isLoading, isError } = useQuery({
+    queryKey: ['alldonations'],
+    queryFn: async () => {
+      const response = await axiosSecure.get('/alldonations')
+      return response.data
+    },
+    refetchInterval: 60000, // refetch every minute
+  })
 
   // Fetch total amounts for each campaign when mycampaigns changes
   useEffect(() => {
     const fetchTotalAmounts = async () => {
       const amounts = {};
-      for (const campaign of mycampaigns) {
+      for (const campaign of alldonations) {
         try {
           const response = await axiosSecure.get(`/mycampaigns-donators?id=${campaign._id}`);
           const totalAmount = response.data.reduce((acc, campaign) => {
@@ -32,10 +39,10 @@ const MyCampaigns = () => {
       setTotalAmounts(amounts); // Set the total amounts state
     };
 
-    if (mycampaigns.length) {
+    if (alldonations.length) {
       fetchTotalAmounts();
     }
-  }, [mycampaigns, axiosSecure]);
+  }, [alldonations, axiosSecure]);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -55,12 +62,11 @@ const MyCampaigns = () => {
   const handlePauseToggle = (id) => {
     console.log(`Toggled pause for campaign ID: ${id}`);
   };
-
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          My Donation Campaigns
+          All Donation Campaigns
         </h2>
 
         <table className="w-full table-auto border-collapse border border-gray-300">
@@ -74,7 +80,7 @@ const MyCampaigns = () => {
             </tr>
           </thead>
           <tbody>
-            {mycampaigns.map((campaign) => {
+            {alldonations.map((campaign) => {
               const totalAmount = totalAmounts[campaign._id] || 0; // Get the total amount for the current campaign
               return (
                 <tr key={campaign._id} className="text-gray-700">
@@ -147,7 +153,5 @@ const MyCampaigns = () => {
         )}
       </div>
     </div>
-  );
-};
-
-export default MyCampaigns;
+  )
+}

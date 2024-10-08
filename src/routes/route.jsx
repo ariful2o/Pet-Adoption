@@ -1,6 +1,7 @@
 import {
     createBrowserRouter
 } from "react-router-dom";
+import AllDonation from "../dashboard/admin/AllDonation";
 import AllUsers from "../dashboard/admin/AllUsers";
 import Dashboard from "../dashboard/Dashboard";
 import AddPet from "../dashboard/user/AddPet";
@@ -37,81 +38,84 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
-            },{
-                path:"/login",
-                element:<Login></Login>
-            },{
-                path:"/register",
-                element:<Register></Register>
-            },{
-                path:"/doglist",
-                element:<DogList></DogList>
-            },{
-                path:"/catlist",
-                element:<CatList></CatList>,
-            },{
+            }, {
+                path: "/login",
+                element: <Login></Login>
+            }, {
+                path: "/register",
+                element: <Register></Register>
+            }, {
+                path: "/doglist",
+                element: <DogList></DogList>
+            }, {
+                path: "/catlist",
+                element: <CatList></CatList>,
+            }, {
                 path: "/:path/:id",
                 element: <Details />,
                 loader: ({ params }) => fetch(`http://localhost:5000/${params.path}/${params.id}`)
-              },{
-                path:"/profile",
-                element:<PrivateRoute><Profile></Profile></PrivateRoute>
-              },{
-                path:"/shop",
-                element:<Shop></Shop>
-            },{
-                path:"/adoption",
-                element:<Adoption></Adoption>
-            },{
-                path:"DonationCampaigns",
-                element:<DonationCampaigns></DonationCampaigns>
-            },{
-                path:"/DonationCampaigns/donationDetails/:id",
-                element:<PrivateRoute><DonationDetails /></PrivateRoute>,
+            }, {
+                path: "/profile",
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            }, {
+                path: "/shop",
+                element: <Shop></Shop>
+            }, {
+                path: "/adoption",
+                element: <Adoption></Adoption>
+            }, {
+                path: "DonationCampaigns",
+                element: <DonationCampaigns></DonationCampaigns>
+            }, {
+                path: "/DonationCampaigns/donationDetails/:id",
+                element: <PrivateRoute><DonationDetails /></PrivateRoute>,
                 // loader: ({ params }) => fetch(`http://localhost:5000/donationCampaigns/${params.id}`)
-            },{
-                path:"/Contacts",
-                element:<Contacts></Contacts>
-            },{
-                path:"/blog",
-                element:<Blogs></Blogs>
+            }, {
+                path: "/Contacts",
+                element: <Contacts></Contacts>
+            }, {
+                path: "/blog",
+                element: <Blogs></Blogs>
             }
         ]
-    },{
+    }, {
         path: "/dashboard",
-        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-        errorElement:<ErrorPage></ErrorPage>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             // admin routes
             {
-                path:"/dashboard/users",
-                element:<PrivateRoute><AllUsers></AllUsers></PrivateRoute>
+                path: "/dashboard/users",
+                element: <PrivateRoute><AllUsers></AllUsers></PrivateRoute>
+            }, {
+                path: "/dashboard/alldonations",
+                element: <PrivateRoute><AllDonation /></PrivateRoute>
             },
             // user routes
             {
-                path:"/dashboard/addpet",
-                element:<PrivateRoute><AddPet></AddPet></PrivateRoute>
-            },{
-                path:"/dashboard/mypet",
-                element:<PrivateRoute><MyaddPet></MyaddPet></PrivateRoute>
-            },{
-                path:"/dashboard/updatepet/:id",
-                element:<PrivateRoute><UpdatePet /></PrivateRoute>
-            },{
-                path:"/dashboard/adoprionrequest",
-                element:<PrivateRoute><AdoptRequest /></PrivateRoute>
-            },{
-                path:"/dashboard/donationform",
-                element:<PrivateRoute><DonationForm /></PrivateRoute>
-            },{
-                path:"/dashboard/mycampaigns",
-                element:<PrivateRoute><MyCampaigns /></PrivateRoute>
-            },{
-                path:"/dashboard/editdonationform",
-                element:<PrivateRoute><EditDonationForm /></PrivateRoute>
-            },{
-                path:"/dashboard/mydonations",
-                element:<PrivateRoute><MyDonations /></PrivateRoute>
+                path: "/dashboard/addpet",
+                element: <PrivateRoute><AddPet></AddPet></PrivateRoute>
+            }, {
+                path: "/dashboard/mypet",
+                element: <PrivateRoute><MyaddPet></MyaddPet></PrivateRoute>
+            }, {
+                path: "/dashboard/updatepet/:id",
+                element: <PrivateRoute><UpdatePet /></PrivateRoute>
+            }, {
+                path: "/dashboard/adoprionrequest",
+                element: <PrivateRoute><AdoptRequest /></PrivateRoute>
+            }, {
+                path: "/dashboard/donationform",
+                element: <PrivateRoute><DonationForm /></PrivateRoute>
+            }, {
+                path: "/dashboard/mycampaigns",
+                element: <PrivateRoute><MyCampaigns /></PrivateRoute>
+            }, {
+                path: "/dashboard/editdonationform",
+                element: <PrivateRoute><EditDonationForm /></PrivateRoute>
+            }, {
+                path: "/dashboard/mydonations",
+                element: <PrivateRoute><MyDonations /></PrivateRoute>
             }
         ]
     }

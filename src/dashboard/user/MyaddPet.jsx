@@ -5,7 +5,6 @@ import { Tooltip } from 'react-tooltip';
 import Swal from 'sweetalert2';
 import PetTable from '../../componts/PetTable';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
-import useMyPets from '../../hooks/mypets/useMyPets';
 import useUser from '../../hooks/userInfo/useUser';
 
 
@@ -14,9 +13,24 @@ import useUser from '../../hooks/userInfo/useUser';
 export default function MyaddPet() {
     const axiosSecure = useAxiosSecure()
     const { displayName, email, photoURL } = useUser();
-    const [mypets, refetch]=useMyPets()
 
 
+    const [page, setPage] = useState(1); // State for current page
+    const [limit] = useState(10); // Number of items per page
+
+    const { data, isLoading, isError, refetch } = useQuery({
+        queryKey: ["mypets", page],
+        queryFn: async () => {
+            const response = await axiosSecure.post(`/mypets?page=${page}&limit=${limit}`,{email});
+            return response.data;
+        },
+        refetchOnWindowFocus: false,
+        retry: false,
+    });
+
+    console.log(data);
+    const allpets = data?.pets || [];
+    const totalPages = data?.totalPages || 1;
 
     const handleDeletePet = (pet) => {
         const petCategory = pet.petCategory.value
@@ -49,9 +63,18 @@ export default function MyaddPet() {
         // Logic to mark pet as adopted
         // setPets(pets.map(pet => pet.id === petId ? { ...pet, adopted: true } : pet));
     };
+
+    const handleNextPage = () => {
+        if (page < totalPages) setPage((prev) => prev + 1);
+    };
+
+    const handlePrevPage = () => {
+        if (page > 1) setPage((prev) => prev - 1);
+    };
+
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold">My Added Pets : {mypets.length}</h1>
+            <h1 className="text-2xl font-bold">My Added Pets : {allpets.length}</h1>
             <div className="overflow-x-auto text-black">
                 <table className="table">
                     {/* head */}
@@ -67,9 +90,18 @@ export default function MyaddPet() {
                     </thead>
                     <tbody>
                         {/* row 1 */}
-                        {mypets.map((pet, index) => <PetTable key={pet._id} pet={pet} handleDeletePet={handleDeletePet} onAdoptPet={handleAdoptPet} index={index}></PetTable>)}
+                        {allpets.map((pet, index) => <PetTable key={pet._id} pet={pet} handleDeletePet={handleDeletePet} onAdoptPet={handleAdoptPet} index={index}></PetTable>)}
                     </tbody>
                 </table>
+                <div className="flex justify-between mt-4">
+                        <button onClick={handlePrevPage} disabled={page === 1}>
+                            Previous
+                        </button>
+                        <span>Page {page} of {totalPages}</span>
+                        <button onClick={handleNextPage} disabled={page === totalPages}>
+                            Next
+                        </button>
+                    </div>
             </div>
             {/* Tooltips rendered outside the table structure */}
             <Tooltip id="tooltip-update" content="Update" />

@@ -1,34 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Tooltip } from 'react-tooltip';
 import Swal from 'sweetalert2';
 import PetTable from '../../componts/PetTable';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
-import useUser from '../../hooks/userInfo/useUser';
-
 
 export default function AllPets() {
-    const axiosSecure = useAxiosSecure()
-    const { displayName, email, photoURL } = useUser();
+    const axiosSecure = useAxiosSecure();
+    const [page, setPage] = useState(1); // State for current page
+    const [limit] = useState(10); // Number of items per page
 
-    const { data: mypets = [], refetch } = useQuery({
-        queryKey: ["mypets", email],
+    const { data, isLoading, isError, refetch } = useQuery({
+        queryKey: ["allpets", page],
         queryFn: async () => {
-            const response = await axiosSecure.get(`/allpets`)
-            return response.data
+            const response = await axiosSecure.get(`/allpets?page=${page}&limit=${limit}`);
+            return response.data;
         },
-        refetchInterval: (data) => {
-            // If data is empty, refetch every 10 seconds
-            return !data || data.length === 0 ? 10000 : false  // 10 seconds
-        },
-        refetchOnWindowFocus: false, // Prevent refetch on window focus
-        retry: false, // Disable retrying on failure
-    })
+        refetchOnWindowFocus: false,
+        retry: false,
+    });
+    
+    const allpets = data?.pets || [];
+    const totalPages = data?.totalPages || 1;
 
-console.log(mypets);
     const handleDeletePet = (pet) => {
-        const petCategory = pet.petCategory.value
-        const id = pet._id
+        const petCategory = pet.petCategory.value;
+        const id = pet._id;
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -39,7 +36,7 @@ console.log(mypets);
             confirmButtonText: "Yes, delete it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const deletepet = await axiosSecure.delete(`/${petCategory}/${id}`)
+                const deletepet = await axiosSecure.delete(`/${petCategory}/${id}`);
                 if (deletepet.data.acknowledged) {
                     Swal.fire({
                         title: "Deleted!",
@@ -50,41 +47,65 @@ console.log(mypets);
                 }
             }
         });
-
     };
 
     const handleAdoptPet = (petId) => {
         // Logic to mark pet as adopted
-        // setPets(pets.map(pet => pet.id === petId ? { ...pet, adopted: true } : pet));
     };
+
+    const handleNextPage = () => {
+        if (page < totalPages) setPage((prev) => prev + 1);
+    };
+
+    const handlePrevPage = () => {
+        if (page > 1) setPage((prev) => prev - 1);
+    };
+
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold">All Pets : {mypets.length}</h1>
-            <div className="overflow-x-auto text-black">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr className='text-black font-bold text-lg'>
-                            <th>
-                            </th>
-                            <th>Name</th>
-                            <th>Pet category</th>
-                            <th>Adoption Status</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {mypets.map((pet, index) => <PetTable key={pet._id} pet={pet} handleDeletePet={handleDeletePet} onAdoptPet={handleAdoptPet} index={index}></PetTable>)}
-                    </tbody>
-                </table>
-            </div>
-            {/* Tooltips rendered outside the table structure */}
+            <h1 className="text-2xl font-bold">All Pets : {data?.totalPets || 0}</h1>
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : isError ? (
+                <p>Something went wrong. Please try again later.</p>
+            ) : (
+                <div className="overflow-x-auto text-black">
+                    <table className="table">
+                        <thead>
+                            <tr className='text-black font-bold text-lg'>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Pet category</th>
+                                <th>Adoption Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {allpets.map((pet, index) => (
+                                <PetTable
+                                    key={pet._id}
+                                    pet={pet}
+                                    handleDeletePet={handleDeletePet}
+                                    onAdoptPet={handleAdoptPet}
+                                    index={index}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                    <div className="flex justify-between mt-4">
+                        <button onClick={handlePrevPage} disabled={page === 1}>
+                            Previous
+                        </button>
+                        <span>Page {page} of {totalPages}</span>
+                        <button onClick={handleNextPage} disabled={page === totalPages}>
+                            Next
+                        </button>
+                    </div>
+                </div>
+            )}
             <Tooltip id="tooltip-update" content="Update" />
             <Tooltip id="tooltip-delete" content="Delete" />
             <Tooltip id="tooltip-adopted" content="Adopted" />
-
-
         </div>
-    )
+    );
 }

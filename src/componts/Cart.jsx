@@ -12,7 +12,7 @@ export default function Cart({ data }) {
   const path = pathSegments[1] // Get the second-to-last segment
   const id = _id;
   return (
-    <div className="card bg-base-100 w-96 shadow-xl mx-auto">
+    <div className="card bg-base-100 w-full lg:w-96 shadow-xl mx-auto">
       <figure className="relative group">
         <img
           className='rounded-2xl h-60 w-full transition-transform duration-300 transform group-hover:scale-105 group-hover:brightness-75 group-hover:saturate-50'

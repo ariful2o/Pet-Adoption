@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import useAxiosPublic from "../../hooks/axios/useAxiosPublic";
-import useMyCampaigns from "../../hooks/myCampaigns/useMyCamapaigns";
 
 const DonationCampaigns = () => {
   // const { mycampaigns, refetch, isLoading, isError } = useMyCampaigns()
@@ -22,7 +21,7 @@ const DonationCampaigns = () => {
   return (
     <div className="container mx-auto py-4">
       <h1 className="text-2xl font-bold text-center">Donation Campaigns</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {
           mycampaigns.map((campaign, index) => {
             // console.log(campaign)

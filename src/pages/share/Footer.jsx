@@ -40,7 +40,7 @@ export default function Footer() {
                         Providing reliable tech since 1992
                     </p>
                 </aside>
-                <nav className="md:place-self-center md:justify-self-end">
+                <nav className="lg:place-self-center lg:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
                         <a>
                             <svg

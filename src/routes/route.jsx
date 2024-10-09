@@ -2,6 +2,7 @@ import {
     createBrowserRouter
 } from "react-router-dom";
 import AllDonation from "../dashboard/admin/AllDonation";
+import AllPets from "../dashboard/admin/AllPets";
 import AllUsers from "../dashboard/admin/AllUsers";
 import Dashboard from "../dashboard/Dashboard";
 import AddPet from "../dashboard/user/AddPet";
@@ -90,6 +91,9 @@ const router = createBrowserRouter([
             }, {
                 path: "/dashboard/alldonations",
                 element: <PrivateRoute><AllDonation /></PrivateRoute>
+            },{
+                path:"/dashboard/allpets",
+                element: <PrivateRoute><AllPets /></PrivateRoute>
             },
             // user routes
             {

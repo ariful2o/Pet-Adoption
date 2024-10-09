@@ -1,23 +1,31 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { Tooltip } from 'react-tooltip';
 import Swal from 'sweetalert2';
 import PetTable from '../../componts/PetTable';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
-import useMyPets from '../../hooks/mypets/useMyPets';
 import useUser from '../../hooks/userInfo/useUser';
 
 
-
-
-export default function MyaddPet() {
+export default function AllPets() {
     const axiosSecure = useAxiosSecure()
     const { displayName, email, photoURL } = useUser();
-    const [mypets, refetch]=useMyPets()
 
+    const { data: mypets = [], refetch } = useQuery({
+        queryKey: ["mypets", email],
+        queryFn: async () => {
+            const response = await axiosSecure.get(`/allpets`)
+            return response.data
+        },
+        refetchInterval: (data) => {
+            // If data is empty, refetch every 10 seconds
+            return !data || data.length === 0 ? 10000 : false  // 10 seconds
+        },
+        refetchOnWindowFocus: false, // Prevent refetch on window focus
+        retry: false, // Disable retrying on failure
+    })
 
-
+console.log(mypets);
     const handleDeletePet = (pet) => {
         const petCategory = pet.petCategory.value
         const id = pet._id
@@ -51,7 +59,7 @@ export default function MyaddPet() {
     };
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold">My Added Pets : {mypets.length}</h1>
+            <h1 className="text-2xl font-bold">All Pets : {mypets.length}</h1>
             <div className="overflow-x-auto text-black">
                 <table className="table">
                     {/* head */}
@@ -76,7 +84,7 @@ export default function MyaddPet() {
             <Tooltip id="tooltip-delete" content="Delete" />
             <Tooltip id="tooltip-adopted" content="Adopted" />
 
-            
+
         </div>
     )
 }

@@ -27,13 +27,13 @@ export default function Dashboard() {
                         <ul className="space-y-4 menu uppercase">
                             <>
                                 <li>
-                                    <NavLink to="/">
+                                    <NavLink to="/dashboard">
                                         <FaHome />
                                         Admin Home
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="">
+                                    <NavLink to="/dashboard/allpets">
                                         <FaList />
                                         All Pets
                                     </NavLink>

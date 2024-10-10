@@ -1,4 +1,3 @@
-
 import auth from '../../firebase/firebase.conf';
 
 export default function useUser() {

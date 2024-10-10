@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { AuthContext } from '../../authProvider/AuthProvider';
+import useUser from '../../hooks/userInfo/useUser';
+import "./navber.css";
 
 export default function Navbar() {
   const { user, logOutUser } = useContext(AuthContext)
   const [theme, setTheme] = useState('light');
+  const { displayName, email, photoURL } = useUser()
 
   const links = <>
     <li><Link to='/'>Home</Link></li>
@@ -25,7 +26,7 @@ export default function Navbar() {
     document.querySelector('html').setAttribute('data-theme', theme);
   }, [theme]);
 
- 
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -58,6 +59,21 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end gap-4">
+
+        <div className="avatar">
+          <div className="avatar-container rounded-full">
+            <div className="avatar-ring ring-offset-base-100 w-11 rounded-full ring ring-offset-1">
+              <NavLink to="/profile">
+
+                <img
+                  src={photoURL}
+                  alt={displayName}
+                  className="rounded-full"
+                />
+              </NavLink>
+            </div>
+          </div>
+        </div>
 
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}

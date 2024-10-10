@@ -1,0 +1,46 @@
+/* .avatar-container {
+    animation: rotate 20s linear infinite;
+} */
+
+.avatar-ring {
+    border-width: 2px;
+    animation: colorCycle 3s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes colorCycle {
+    0% {
+        border-color: red;
+    }
+    12.5% {
+        border-color: orange;
+    }
+    25% {
+        border-color: yellow;
+    }
+    37.5% {
+        border-color: green;
+    }
+    50% {
+        border-color: cyan;
+    }
+    62.5% {
+        border-color: blue;
+    }
+    75% {
+        border-color: violet;
+    }
+    87.5% {
+        border-color: magenta;
+    }
+    100% {
+        border-color: red;
+    }
+}

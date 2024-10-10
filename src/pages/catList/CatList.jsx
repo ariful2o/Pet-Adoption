@@ -1,15 +1,19 @@
 import React from 'react'
 import Cart from '../../componts/Cart'
+import TitleBanner from '../../componts/TitleBanner'
 import useCats from '../../hooks/cats/useCats'
 
 export default function CatList() {
   const [cats, refetch] = useCats()
-  console.log(cats);
+  // console.log(cats);
   return (
-    <div className='grid grid-cols-1 lg:grid-cols-3 gap-9'>
-      {cats.map((cat) => {
-        return <Cart key={cat._id} data={cat}></Cart>
-      })}
-    </div>
+    <section>
+      <TitleBanner section="Cat List" image="https://www.bluecross.org.uk/sites/default/files/d8/styles/theme_feature_extra_large/public/2021-02/BX150932_HY_BC_EDDIE_032-lpr.JPG.webp?itok=6VofKpXj"></TitleBanner>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-9 py-8'>
+        {cats.map((cat) => {
+          return <Cart key={cat._id} data={cat}></Cart>
+        })}
+      </div>
+    </section>
   )
 }

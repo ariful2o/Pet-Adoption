@@ -5,11 +5,8 @@ import registerImg from "../../assets/adopt-a-pet/registerImage.jpg";
 import auth from "../../firebase/firebase.conf";
 import useAuth from "../../hooks/auth/useAuth";
 
-
-
-
 const Register = () => {
-  const {registerUser,setUser} = useAuth();
+  const { registerUser, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -19,13 +16,13 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    registerUser (email, password)
-      .then(async(res) => {
-        setUser(res.data)
-        console.log('User registration');
-         await updateProfile(auth.currentUser, {
+    registerUser(email, password)
+      .then(async (res) => {
+        setUser(res.data);
+        console.log("User registration");
+        await updateProfile(auth.currentUser, {
           displayName: name,
-        }).then(()=>{
+        }).then(() => {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -34,27 +31,22 @@ const Register = () => {
             timer: 1500,
           });
           navigate("/");
-        })
-      })
-     
+        });
+      });
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center"
-      // style={{ backgroundImage: `url(${})` }}
-    >
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div
-        className="flex flex-col lg:flex-row-reverse justify-between items-center pb-10 mx-auto max-h-[600px] w-[80%]"
-        style={{ boxShadow: `10px 10px 10px 10px rgba(0, 0, 0, 0.25)` }}
+        className="flex flex-col lg:flex-row-reverse justify-between items-center pb-10 mx-auto lg:max-h-[600px] w-[90%] lg:w-[80%] bg-white rounded-lg shadow-md overflow-hidden"
       >
-        <div className="w-1/2">
-          <img src={registerImg} alt="" />
+        <div className="w-full lg:w-1/2">
+          <img src={registerImg} alt="Register" className="object-cover w-full h-full" />
         </div>
-        <div className="card w-full max-w-sm mx-auto">
-          <form className="card-body" onSubmit={handleSubmit}>
-            <h1 className="text-3xl font-bold text-center ">Register Here!</h1>
-            <div className="form-control">
+        <div className="w-full lg:w-1/2 flex justify-center p-4">
+          <form className="card-body w-full max-w-sm" onSubmit={handleSubmit}>
+            <h1 className="text-3xl font-bold text-center mb-4">Register Here!</h1>
+            <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
@@ -62,11 +54,11 @@ const Register = () => {
                 name="name"
                 type="text"
                 placeholder="name"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -74,11 +66,11 @@ const Register = () => {
                 name="email"
                 type="email"
                 placeholder="email"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
@@ -86,18 +78,25 @@ const Register = () => {
                 name="password"
                 type="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 required
               />
-              <label className="label">
-                <a href="#" >
-                 Already have a account ?<span className="label-text-alt link link-hover hover:text-red-600 text-lg font-bold"><NavLink to="/login"> Signin </NavLink></span>Now !
-                </a>
+              <label className="label mt-2">
+                <p className="text-sm">
+                  Already have an account?{" "}
+                  <NavLink
+                    to="/login"
+                    className="text-blue-600 hover:text-red-600 font-bold"
+                  >
+                    Sign in
+                  </NavLink>{" "}
+                  now!
+                </p>
               </label>
             </div>
 
-            <div className="form-control mt-2">
-              <button className="btn bg-[#D1A054B3]" type="submit">
+            <div className="form-control mt-4">
+              <button className="btn bg-[#D1A054B3] w-full" type="submit">
                 Sign Up
               </button>
             </div>

@@ -1,6 +1,7 @@
 import {
     createBrowserRouter
 } from "react-router-dom";
+import AdminHome from "../dashboard/admin/AdminHome";
 import AllDonation from "../dashboard/admin/AllDonation";
 import AllPets from "../dashboard/admin/AllPets";
 import AllUsers from "../dashboard/admin/AllUsers";
@@ -101,6 +102,9 @@ const router = createBrowserRouter([
             },{
                 path:"/dashboard/allpets",
                 element: <PrivateRoute><AllPets /></PrivateRoute>
+            },{
+                path:"/dashboard/adminhome",
+                element: <PrivateRoute><AdminHome /></PrivateRoute>
             },
             // user routes
             {

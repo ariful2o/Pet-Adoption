@@ -1,202 +1,51 @@
 [
   {
-    "name": "Whiskers",
-    "age": 2,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Playful and affectionate, loves to cuddle.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Siamese",
-    "gender": { "value": "male", "label": "Male" },
-    "adoptionFee": 100,
-    "weight": 10,
-    "image": "https://images.wagwalkingweb.com/media/daily_wag/blog_articles/hero/1678934108.5188236/everything-you-need-to-know-about-siamese-cats.png",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
+      "title": "The Joys of Adopting a Shelter Dog",
+      "image": "https://jollypets.com/cdn/shop/articles/The_5_Benefits_of_Adopting_a_Dog_1600x.jpg?v=1573147208",
+      "shortDescription": "Discover the heartwarming experiences of adopting a dog from a shelter and how it can change both your life and theirs for the better.",
+      "longDescription": "Adopting a dog from a shelter is more than just giving a home to an animal; it’s about opening your heart and experiencing unconditional love. Many shelter dogs are waiting for a second chance at life—whether they've been abandoned, surrendered, or found as strays. When you bring a shelter dog into your life, you provide them with the stability, care, and love they desperately need. These animals often come with incredible stories of resilience, and as you watch them blossom in your care, you’ll feel a sense of fulfillment that’s hard to match. The bond between an adopted dog and their owner is special because you know that you’re providing them with a life they might not have had otherwise. Plus, adopting from a shelter is a great way to combat overpopulation and reduce the number of dogs living in shelters or being euthanized each year. Embrace the joy, and consider visiting your local shelter today.",
+      "dateAdded": "2024-10-11T03:43:14.336Z",
+      "author": {
+        "displayName": "Mohammad Ariful Islam",
+        "email": "a@b.com",
+        "photoURL": "https://i.ibb.co/FB5FtJ9/ariful.jpg"
+    }
+
+  },
+  {
+      "title": "Why Senior Pets Make the Best Companions",
+      "image": "https://cdn.buttercms.com/345R8XjZTKBFrksd0XQQ",
+      "shortDescription": "Senior pets have so much love to give. Find out why adopting an older animal can be one of the most rewarding decisions you’ll ever make.",
+      "longDescription": "When people think about adopting a pet, they often imagine a playful puppy or kitten. But senior pets have their own charm and unique benefits that can make them the perfect companions. Older animals are usually calmer, have established personalities, and are often already trained, making the transition into your home easier. Many senior pets end up in shelters due to unfortunate circumstances like the passing of their owners or changes in their family situations, not because of their behavior. These animals still have so much love to give and are usually grateful to find a new, loving home where they can spend their golden years. Adopting a senior pet means providing them with comfort and security, and the bond you create is a beautiful reminder of the impact of kindness and compassion. If you’re looking for a loyal, low-maintenance companion, a senior pet could be the perfect match.",
+      "dateAdded": "2024-10-11T03:43:14.336Z",
+      "author": {
+        "displayName": "Mohammad Ariful Islam",
+        "email": "a@b.com",
+        "photoURL": "https://i.ibb.co/FB5FtJ9/ariful.jpg"
     }
   },
   {
-    "name": "Luna",
-    "age": 4,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Calm and gentle, enjoys lounging in sunny spots.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Persian",
-    "gender": { "value": "female", "label": "Female" },
-    "adoptionFee": 150,
-    "weight": 8,
-    "image": "https://azure.wgp-cdn.co.uk/app-yourcat/posts/iStock-174776419-1.jpg?&format=webp&webp.quality=40&scale=both",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
+      "title": "The Benefits of Adopting a Bonded Pair",
+      "image": "https://rescueinstyle.com/wp-content/uploads/2018/02/D56B9797-683x1024.jpg",
+      "shortDescription": "Adopting a bonded pair ensures they have a built-in friend and helps reduce stress and separation anxiety. Learn why two might be better than one!",
+      "longDescription": "Bonded pairs—whether dogs, cats, or other animals—share a special connection and thrive best when they’re together. Adopting a bonded pair means that you’re not just bringing two pets into your home; you’re preserving an important relationship that keeps them happy and healthy. For pets that have grown up together or have formed a deep bond in the shelter, separating them can cause significant stress and anxiety. Having two pets also has benefits for the owner. Bonded animals entertain each other and are often easier to care for because they already have an established routine and social dynamic. They provide companionship, comfort, and security for one another, reducing the likelihood of destructive behavior or loneliness. Moreover, adopting a bonded pair means you’re giving two pets a chance at a loving home instead of one, doubling the impact of your generosity. If you’re considering pet adoption, think about the joy and warmth that come with adopting a pair of furry friends.",
+      "dateAdded": "2024-10-11T03:43:14.336Z",
+      "author": {
+        "displayName": "Mohammad Ariful Islam",
+        "email": "a@b.com",
+        "photoURL": "https://i.ibb.co/FB5FtJ9/ariful.jpg"
     }
   },
   {
-    "name": "Mittens",
-    "age": 3,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Sociable and friendly, loves to play with toys.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Maine Coon",
-    "gender": { "value": "female", "label": "Female" },
-    "adoptionFee": 200,
-    "weight": 15,
-    "image": "https://www.katdootje.nl/wp-content/uploads/Orange-Maine-Coon.webp",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
-    }
-  },
-  {
-    "name": "Shadow",
-    "age": 5,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Independent and laid-back, enjoys quiet time.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "British Shorthair",
-    "gender": { "value": "male", "label": "Male" },
-    "adoptionFee": 180,
-    "weight": 12,
-    "image": "https://cdn.royalcanin-weshare-online.io/l1bb9noBBKJuub5qBbou/v3/bp-lot-2-british-shorthair-color-activity",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Adopted",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
-    }
-  },
-  {
-    "name": "Oliver",
-    "age": 1,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Curious and energetic, loves to explore.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Tabby",
-    "gender": { "value": "male", "label": "Male" },
-    "adoptionFee": 120,
-    "weight": 9,
-    "image": "https://www.thesprucepets.com/thmb/uQnGtOt9VQiML2oG2YzAmPErrHo=/5441x0/filters:no_upscale():strip_icc()/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
-    }
-  },
-  {
-    "name": "Bella",
-    "age": 3,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Affectionate and playful, loves to be the center of attention.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Sphynx",
-    "gender": { "value": "female", "label": "Female" },
-    "adoptionFee": 250,
-    "weight": 10,
-    "image": "https://cfa.org/wp-content/uploads/2024/08/2020-c05c-BolerMiaoZizi.webp",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
-    }
-  },
-  {
-    "name": "Cleo",
-    "age": 4,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Active and intelligent, enjoys climbing and playing.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Bengal",
-    "gender": { "value": "female", "label": "Female" },
-    "adoptionFee": 220,
-    "weight": 11,
-    "image": "https://www.tippaws.com/cdn/shop/articles/Bengal_cat_heading.png?v=1708014591",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
-    }
-  },
-  {
-    "name": "Simba",
-    "age": 2,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Laid-back and affectionate, loves being held.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Ragdoll",
-    "gender": { "value": "male", "label": "Male" },
-    "adoptionFee": 160,
-    "weight": 14,
-    "image": "https://clubcatt.com/cdn/shop/articles/ragdoll-cat-breed.webp?v=1691442856&width=1100",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
-    }
-  },
-  {
-    "name": "Nala",
-    "age": 5,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Playful and friendly, enjoys interacting with people.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Norwegian Forest",
-    "gender": { "value": "female", "label": "Female" },
-    "adoptionFee": 190,
-    "weight": 12,
-    "image": "https://www.thesprucepets.com/thmb/c4xUQ9bmuswDR-umoAKTmwH_r-A=/1500x0/filters:no_upscale():strip_icc()/norwegian-forest-cat-4170085-fe84aa86023446c4b64236ddfbdefd2b.jpg",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
-    }
-  },
-  {
-    "name": "Tigger",
-    "age": 3,
-    "petCategory": { "value": "cat", "label": "Cat" },
-    "petLocation": "Error placeat quis.",
-    "description": "Affectionate and playful, loves to be pampered.",
-    "longDescription": "Alias illum veniam dolore.",
-    "breed": "Scottish Fold",
-    "gender": { "value": "male", "label": "Male" },
-    "adoptionFee": 170,
-    "weight": 11,
-    "image": "https://www.petassure.com/petassure/file-streams/page/gyyyeLBsy9JBzjL7K01SFQ0rare-cat-breed-the-scottish-fold.jpg",
-    "dateAdded": "2024-09-29T15:39:18.615Z",
-    "status": "Available",
-    "author": {
-      "displayName": "Mohammad Ariful Islam",
-      "email": "a@b.com",
-      "photoURL": "https://i.ibb.co/YXywfQL/ariful.jpg"
+      "title": "How to Prepare Your Home for a Rescue Pet",
+      "image": "https://bowwowinsurance.com.au/wp-content/uploads/2018/10/shelter-rescue-puppy-looking-through-fence-sad-puppy-cute.jpg",
+      "shortDescription": "Bringing a rescue pet home is an exciting experience, but it requires preparation. Here’s a guide to help you create a welcoming space for your new family member.",
+      "longDescription": "Welcoming a rescue pet into your home is a rewarding experience, but it’s important to make sure your home is ready for the transition. Rescue pets may have experienced trauma or instability, so creating a safe and comfortable environment is key to helping them adjust. Start by setting up a designated space for your new pet, complete with a bed, food and water bowls, and some toys to make them feel at home. Consider the safety of your home: secure areas where your pet could hide or escape, remove harmful objects, and establish boundaries to prevent them from accessing off-limits spaces. Patience is essential; rescue pets may take time to adapt to their new surroundings and family members. Providing structure, routine, and lots of positive reinforcement can help ease their anxiety. Remember, the goal is to create a space where your pet feels secure, loved, and part of the family. With preparation and care, your rescue pet will thrive and bring endless joy to your life.",
+      "dateAdded": "2024-10-11T03:43:14.336Z",
+      "author": {
+        "displayName": "Mohammad Ariful Islam",
+        "email": "a@b.com",
+        "photoURL": "https://i.ibb.co/FB5FtJ9/ariful.jpg"
     }
   }
 ]

@@ -17,6 +17,8 @@ import PrivateRoute from "../hooks/privateRoute/PrivateRoute";
 import Adoption from "../pages/adoption/Adoption";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
+import AddBlog from "../pages/blogs/AddBlog";
+import BlogDetails from "../pages/blogs/BlogDetails";
 import Blogs from "../pages/blogs/Blogs";
 import CatList from "../pages/catList/CatList";
 import Contacts from "../pages/contacts/Contacts";
@@ -70,13 +72,18 @@ const router = createBrowserRouter([
             }, {
                 path: "/DonationCampaigns/donationDetails/:id",
                 element: <PrivateRoute><DonationDetails /></PrivateRoute>,
-                // loader: ({ params }) => fetch(`http://localhost:5000/donationCampaigns/${params.id}`)
             }, {
                 path: "/Contacts",
                 element: <Contacts></Contacts>
             }, {
                 path: "/blog",
                 element: <Blogs></Blogs>
+            },{
+                path:"addblog",
+                element: <PrivateRoute><AddBlog /></PrivateRoute>
+            },{
+                path:"/blogs/:id",
+                element: <BlogDetails />,
             }
         ]
     }, {

@@ -12,7 +12,7 @@ export default function Details() {
     const { name, age, petCategory, petLocation, description, longDescription, breed, gender, adoptionFee, weight, image, dateAdded, status, author,
         _id } = details;
 
-    const dateOnly = dateAdded.split("T")[0];
+    const dateOnly = dateAdded?.split("T")[0];
 
     const handleAdopt = (e) => {
         e.preventDefault();
@@ -56,7 +56,7 @@ export default function Details() {
                     <p className=''>{description}</p>
                     <div className="">
                         <h4 className=""><span className=" font-bold">Breed:</span> {breed}</h4>
-                        <h4 className=""><span className=" font-bold">Gender:</span> {gender.label}</h4>
+                        <h4 className=""><span className=" font-bold">Gender:</span> {gender}</h4>
                         <h4 className=""><span className=" font-bold">Age:</span> {age} years</h4>
                         <h4 className=""><span className=" font-bold">Weight:</span> {weight} pound</h4>
                         <h4 className=""><span className=" font-bold">Adoption Fee:</span> ${adoptionFee}</h4>

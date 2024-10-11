@@ -33,38 +33,42 @@ Check out the live demo: [Pet Adoption Client Live](https://your-live-link.com)
    ```bash
    git clone https://github.com/your-username/pet-adoption-client.git
 
-2.Navigate into the project directory:
+2. Navigate into the project directory:
 
+```bash
 cd pet-adoption-client
 
-3.Install the dependencies:
+3. Install the dependencies:
 
+```bash
 npm install
 
-4.Start the development server:
+4. Start the development server:
 
+```bash
 npm run dev
 
 The application will be available at http://localhost:3000.
 
 ## Scripts
-    npm run dev: Start the development server.
-    npm run build: Build the application for production.
-    npm run lint: Run ESLint for code quality checks.
-    npm run preview: Preview the production build locally.
+
+- npm run dev: Start the development server.
+- npm run build: Build the application for production.
+- npm run lint: Run ESLint for code quality checks.
+- npm run preview: Preview the production build locally.
 
 ## Configuration
 Ensure you set up the following environment variables for the project:
 
-    Firebase Configuration: Required for authentication.
-    Stripe API Keys: Required for processing donations.
+   - Firebase Configuration: Required for authentication.
+   - Stripe API Keys: Required for processing donations.
     (Add any other necessary environment variables here)
 
 ## Dependencies
 The project uses several dependencies and devDependencies for smooth development and production builds:
 
-    Dependencies: Axios, Firebase, Formik, React, React DOM, React Query, React Router DOM, TailwindCSS, DaisyUI, Stripe
-    Dev Dependencies: Vite, ESLint, TailwindCSS, DaisyUI
+   - Dependencies: Axios, Firebase, Formik, React, React DOM, React Query, React Router DOM, TailwindCSS, DaisyUI, Stripe
+   - Dev Dependencies: Vite, ESLint, TailwindCSS, DaisyUI
 
 ## Contributing
 
@@ -78,7 +82,7 @@ This project is open source and available under the MIT License.
 
 For any questions or feedback, feel free to reach out:
 
-Name: Mohammad Ariful Islam
-Email: arifulz848@gmail.com
+- **Name**: Mohammad Ariful Islam
+- **Email**: arifulz848@gmail.com
 
 Enjoy building and contributing!

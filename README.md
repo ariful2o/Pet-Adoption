@@ -4,8 +4,9 @@ A responsive and dynamic application for managing pet adoption. This project is 
 
 ## Live Demo
 
-Check out the live demo: [Pet Adoption Client Live](https://your-live-link.com)  
-*(Replace the above URL with your actual live link)*
+Check out the live demo 1: [Pet Adoption Client Live](https://pet-adoption-c569a.web.app)  
+Check out the live demo 2: [Pet Adoption Client Live](https://pet-adoption9.netlify.app)  
+
 
 ## Features
 

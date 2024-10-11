@@ -35,22 +35,21 @@ Check out the live demo: [Pet Adoption Client Live](https://your-live-link.com)
 
 2. Navigate into the project directory:
 
-```bash
-cd pet-adoption-client
+    ```bash
+    cd pet-adoption-client
 
 3. Install the dependencies:
 
-```bash
-npm install
+    ```bash
+    npm install
 
 4. Start the development server:
 
-```bash
-npm run dev
+    ```bash
+    npm run dev
 
 The application will be available at http://localhost:3000.
 
-## Scripts
 ## Scripts
 
 * **`npm run dev`**: Start the development server.

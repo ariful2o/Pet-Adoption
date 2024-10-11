@@ -26,7 +26,6 @@ const AddPet = () => {
   const axiosSecure = useAxiosSecure();
 
   const handleFileChange = (file) => {
-    // console.log("File received in parent:", file); // Log to ensure file is set
     setFile(file);
   };
 
@@ -62,9 +61,6 @@ const AddPet = () => {
         }}
         onSubmit={async (values, { setSubmitting, setFieldError, resetForm }) => {
           try {
-            // console.log('File:', file);
-            // console.log('Form Values:', values);
-
             const imageUrl = await uploadToImgbb(file);
             const petData = {
               ...values,

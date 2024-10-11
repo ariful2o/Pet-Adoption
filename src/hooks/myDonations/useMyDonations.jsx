@@ -7,12 +7,12 @@ export default function useMyDonations() {
     const axiosSecure=useAxiosSecure()
     const {email}=useUser()
 
-    const {data:myDonations=[],isLoading}=useQuery({
+    const {data:myDonations=[],isLoading,refetch}=useQuery({
         queryKey:['myDonations'],
         queryFn: async () => {
             const response=await axiosSecure.get(`/myDonations?email=${email}`)
             return response.data
         }
     })
-  return [myDonations,isLoading]
+  return [myDonations,isLoading,refetch]
 }

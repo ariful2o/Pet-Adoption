@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import TitleBanner from "../../componts/TitleBanner";
@@ -20,11 +21,14 @@ const DonationCampaigns = () => {
   if (isError) return <div>Error loading campaigns</div>;
 
   return (
-    <><TitleBanner section={`Campaign`} image="https://www.sddac.com/content/sdc/das/donate-volunteer/donate-items/_jcr_content/par/image_3.img.jpg/1709754900461.jpg"></TitleBanner><div className="container mx-auto py-4">
+    <>
+    <Helmet>
+        <title>Pet Adoption | Campaigns</title>
+      </Helmet>
+    <TitleBanner section={`Campaign`} image="https://www.sddac.com/content/sdc/das/donate-volunteer/donate-items/_jcr_content/par/image_3.img.jpg/1709754900461.jpg"></TitleBanner><div className="container mx-auto py-4">
       <h1 className="text-2xl font-bold text-center">Donation Campaigns</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {mycampaigns.map((campaign, index) => {
-          // console.log(campaign)
           return (
             <div
               key={campaign._id}
@@ -43,7 +47,8 @@ const DonationCampaigns = () => {
         })}
       </div>
       {isLoading && <div>Loading more campaigns...</div>}
-    </div></>
+    </div>
+    </>
   );
 };
 

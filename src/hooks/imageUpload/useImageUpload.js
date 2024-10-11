@@ -14,7 +14,6 @@ const uploadToImgbb = async (file) => {
         const data = await response.json();
         if (data.success) {
             // setImageUrl(data.data.display_url); // Save the uploaded image URL
-            // console.log('Image uploaded successfully:', data.data.display_url);
             return data.data.display_url; // Return the uploaded image URL
         } else {
             console.error('Upload failed:', data);

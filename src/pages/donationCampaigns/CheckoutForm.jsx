@@ -14,12 +14,10 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,pe
   const stripe = useStripe();
   const elements = useElements();
 
-  // console.log(totalPrice);
   useEffect(() => {
     axiosSecure
       .post("/create-payment-intent", {amount})
       .then((response) => {
-        console.log(response.data.clientSecret);
         setClientSecret(response.data.clientSecret);
       });
   }, [axiosSecure, amount]);

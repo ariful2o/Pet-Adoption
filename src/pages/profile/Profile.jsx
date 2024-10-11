@@ -15,7 +15,6 @@ export default function Profile() {
 
     const handleFileChange = (file) => {
         setFile(file); // Update the file state in the parent
-        // console.log("File received in parent:", file);
     };
 
     const toggleDropdown = () => {
@@ -30,7 +29,6 @@ export default function Profile() {
 
         // file uploade imgbb
         const imgUpliadIMGBB = await uploadToImgbb(file)
-        // console.log('Image uploaded successfully:', imgUpliadIMGBB);
 
         // update user profile firebase
         const updateUserProfile = await updateProfile(auth.currentUser, {

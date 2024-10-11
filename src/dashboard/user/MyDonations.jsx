@@ -1,10 +1,40 @@
 import React from 'react'
+import Swal from 'sweetalert2'
+import useAxiosSecure from '../../hooks/axios/useAxiosSecure'
 import useMyDonations from '../../hooks/myDonations/useMyDonations'
 
 export default function MyDonations() {
-    const [myDonations, isLoading] = useMyDonations()
+    const [myDonations, isLoading,refetch] = useMyDonations()
+    const axiosSecure = useAxiosSecure()
     if (isLoading) return <div>Loading...</div>
-    // console.log(myDonations)
+
+    const handleDelete = (id) => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const deleteDonation = await axiosSecure.delete(`/deletedonation/${id}`)
+                if (deleteDonation.data.acknowledged) {
+                    refetch();
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your donation has been deleted.",
+                        icon: "success"
+                    });
+                }
+            }
+        });
+
+
+
+    }
     return (
         <>
             <h2 className='text-black text-xl p-5' >My Donations : {myDonations.length}</h2>
@@ -48,7 +78,7 @@ export default function MyDonations() {
                                         </td>
                                         <td>${item.currentDonation}</td>
                                         <th>
-                                            <button className="btn btn-ghost btn-xs">Remove</button>
+                                            <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-xs">Remove</button>
                                         </th>
                                     </tr>
                                 )

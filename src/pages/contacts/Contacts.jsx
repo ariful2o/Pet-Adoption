@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async';
 import TitleBanner from '../../componts/TitleBanner'
 
 export default function Contacts() {
@@ -8,6 +9,9 @@ export default function Contacts() {
   };
   return (
     <section>
+      <Helmet>
+        <title>Pet Adoption | Contacts</title>
+      </Helmet>
       <TitleBanner section={`Contacta Us`} image="https://rescueanimalsireland.ie/images/Adopt%20Articles/romain-dancre-doplSDELX7E-unsplash.jpg?ezimgfmt=rs:352x264/rscb1/ng:webp/ngcb1"></TitleBanner>
 
       <div className="container mx-auto px-4 py-8">

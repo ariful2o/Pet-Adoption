@@ -35,7 +35,6 @@ export default function UpdatePet() {
     const updateItem=mypets.find(p=>p._id===id.id)
     
     const handleFileChange = (file) => {
-      // console.log("File received in parent:", file); // Log to ensure file is set
       setFile(file);
     };
     const {age,petCategory,petLocation,description,longDescription,breed,gender,adoptionFee,weight,name,_id}=updateItem
@@ -71,9 +70,6 @@ export default function UpdatePet() {
       }}
       onSubmit={async (values, { setSubmitting, setFieldError, resetForm }) => {
         try {
-          // console.log('File:', file);
-          // console.log('Form Values:', values);
-
           const imageUrl = await uploadToImgbb(file);
           const petData = {
             ...values,
@@ -82,7 +78,7 @@ export default function UpdatePet() {
             status: 'Available',
             author: { displayName, email, photoURL }
           };
-console.log(petData)
+          
           const result = await axiosSecure.put(`/updatepet/:${petCategory.value}/${_id}`, petData)
           if (result.data.acknowledged) {
             Swal.fire({

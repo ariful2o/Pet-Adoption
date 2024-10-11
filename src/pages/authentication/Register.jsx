@@ -19,7 +19,6 @@ const Register = () => {
     registerUser(email, password)
       .then(async (res) => {
         setUser(res.data);
-        console.log("User registration");
         await updateProfile(auth.currentUser, {
           displayName: name,
         }).then(() => {

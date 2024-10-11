@@ -21,7 +21,6 @@ export default function AddBlog() {
     const navigate = useNavigate()
 
     const handleFileChange = (file) => {
-        // console.log("File received in parent:", file); // Log to ensure file is set
         setFile(file);
     };
     return (
@@ -47,8 +46,7 @@ export default function AddBlog() {
                             navigate("/login")
                             return
                         }
-                        // console.log('File:', file);
-                        // console.log('Form Values:', values);
+
                         const imageUrl = await uploadToImgbb(file);
                         const blogdata = {
                             ...values,
@@ -56,6 +54,7 @@ export default function AddBlog() {
                             dateAdded: new Date().toISOString(),
                             author: { displayName, email, photoURL }
                         };
+                        
                         const result = await axiosSecure.post("/addblog", blogdata)
                         if (result.data.acknowledged) {
                             Swal.fire({

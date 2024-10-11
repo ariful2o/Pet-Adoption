@@ -41,10 +41,8 @@ const MyCampaigns = () => {
 
   const toggleModal = async (id) => {
     try {
-      // console.log("Campaign ID:", id);
       const response = await axiosSecure.get(`/mycampaigns-donators?id=${id}`);
       const donatorsList = response.data.length > 0 ? response.data[0].donators : [];
-      // console.log("Donators Data:", donatorsList);
       setDonators(donatorsList);
       setShowModal(!showModal);
     } catch (error) {
@@ -53,7 +51,7 @@ const MyCampaigns = () => {
   };
 
   const handlePauseToggle = (id) => {
-    console.log(`Toggled pause for campaign ID: ${id}`);
+    // console.log(`Toggled pause for campaign ID: ${id}`);
   };
 
   return (

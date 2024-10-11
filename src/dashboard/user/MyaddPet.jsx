@@ -28,7 +28,6 @@ export default function MyaddPet() {
         retry: false,
     });
 
-    console.log(data);
     const allpets = data?.pets || [];
     const totalPages = data?.totalPages || 1;
 

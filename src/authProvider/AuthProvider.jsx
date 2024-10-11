@@ -49,28 +49,22 @@ export default function AuthProvider({ children }) {
       const loginEmail = { email: currentUser?.email || user.email };
       const loginName = { name: currentUser?.displayName || user.displayName };
       
-      // console.log(currentUser, '=======');
       
       
       const details = { name: loginName.name, email: loginEmail.email }
       if (currentUser) {
         axiosSecure.post('/jwt', loginEmail)
           .then((res) => {
-            // console.log('jwt', res.data);
-            // setLoading(false); // End loading when done
-
-
+            
             // add user database
             axiosPublic.post("/user", details)
               .then((response) => {
-                // console.log(response, '----');
               })
 
           })
       } else {
         axiosSecure.post("/logout", loginEmail)
         then(() => {
-          console.log('logout success');
           setLoading(false); // End loading when done
         })
       }

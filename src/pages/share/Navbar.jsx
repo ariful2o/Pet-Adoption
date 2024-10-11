@@ -51,7 +51,7 @@ export default function Navbar() {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl font-nunito font-extrabold italic">Pet Adoption</a>
+        <a className="btn btn-ghost text-xl lg:text-3xl font-nunito font-extrabold italic">Pet Adoption</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -75,7 +75,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <label className="swap swap-rotate">
+        <label className="swap swap-rotate hidden md:inline">
           {/* this hidden checkbox controls the state */}
           <input type="checkbox" className="theme-controller" value="dark" />
 
@@ -98,7 +98,7 @@ export default function Navbar() {
           </svg>
         </label>
         {
-          user ? <button onClick={logOutUser} className="btn btn-ghost text-lg font-nunito font-extrabold italic shadow-2xl text-red-600">LogOut</button> : <button className="btn btn-ghost text-lg font-nunito font-extrabold italic shadow-2xl"><NavLink to="/login">Login</NavLink></button>
+          user ? <button onClick={logOutUser} className="btn btn-ghost text-lg font-nunito font-extrabold italic shadow-2xl text-red-600 hidden md:inline">LogOut</button> : <button className="btn btn-ghost text-lg font-nunito font-extrabold italic shadow-2xl hidden md:inline"><NavLink to="/login">Login</NavLink></button>
         }
       </div>
     </div>

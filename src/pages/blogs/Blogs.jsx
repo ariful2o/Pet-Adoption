@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
 import TitleBanner from '../../componts/TitleBanner';
 import useBlogs from '../../hooks/blogs/useBlogs';
@@ -7,9 +8,11 @@ import useBlogs from '../../hooks/blogs/useBlogs';
 
 export default function Blogs() {
   const { blogs, isLoading, refetch, isError } = useBlogs()
-  console.log(blogs)
   return (
     <section>
+      <Helmet>
+        <title>Pet Adoption | Blogs</title>
+      </Helmet>
       <TitleBanner section={`Blogs`} image="https://sp.activepipe.com/image/67488116/W10aDAAHUwBTBgAIHAoCVldMUAAOAUkNVlFRTAJUVFpSDwUIUgxWBQ=="></TitleBanner>
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-8">

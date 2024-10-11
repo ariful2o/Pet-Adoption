@@ -36,7 +36,6 @@ const DonationForm = () => {
     e.preventDefault();
     const uplodeImageIMGBB= await uploadToImgbb(file)
     const createCampainData={...formData,petPicture:uplodeImageIMGBB}
-    console.log("Form Data Submitted:",createCampainData);
 
     const createCampain= await axiosSecure.post("/createcampain",createCampainData)
     if (createCampain.data.acknowledged) {

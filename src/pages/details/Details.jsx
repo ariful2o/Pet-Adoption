@@ -23,7 +23,7 @@ export default function Details() {
         const address = form.address.value;
 
         const information = { name, email, phone, address, petId: _id, date: new Date() ,status:"Pending" };
-        console.log(information)
+        
         // Send the information to the server for adoption
         axiosSecure.post('/pets/adoption', information)
             .then((res) => {

@@ -7,7 +7,6 @@ import 'react-tooltip/dist/react-tooltip.css';
 
 export default function PetTable({ pet, index, handleDeletePet }) {
     const { name, image, breed, status, petCategory, _id } = pet;
-    // console.log(pet)
 
     return (
         <>

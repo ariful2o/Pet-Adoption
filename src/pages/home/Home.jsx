@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "./Home/Banner";
 import Carsual from "./Home/Carsual";
 import Donate from "./Home/Donate";
@@ -11,6 +12,9 @@ import Volunteer from "./Home/Volunteer";
 export default function Home() {
   return (
     <section>
+      <Helmet>
+        <title>Pet Adoption | Home</title>
+      </Helmet>
       <Carsual></Carsual>
       <Banner></Banner>
       <FindFriends></FindFriends>

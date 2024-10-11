@@ -33,7 +33,6 @@ export default function AdoptRequest() {
     const petId = ids.petId
     const requestId = ids.requestId
     const petCategory = ids.petCategory.value
-    console.log(petCategory)
 
     const updateStatus = { status: "Adopted" }
 
@@ -58,7 +57,6 @@ export default function AdoptRequest() {
 
   const handleCancle = async (id) => {
     const calcelRequest = await axiosPublic.delete(`/cancel/${id}`)
-    console.log(id)
     if (calcelRequest.data.acknowledged) {
       Swal.fire({
         position: "top-end",
@@ -97,7 +95,6 @@ export default function AdoptRequest() {
                 const { address, date, email, name: username, phone, _id: userid } = req?.requestUser
                 const newdate = date.split('T')[0]
                 const accepted = { petId: _id, requestId: userid, petCategory }
-                // console.log(req.requestPet.petCategory);
                 return (
                   <tr key={_id} className="hover">
                     <th>

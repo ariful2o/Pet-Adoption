@@ -1,6 +1,7 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import loginImg from "../../assets/adopt-a-pet/Adopt_a_Pet8_generated.jpg";
+import SocialLogin from "../../componts/SocialLogin";
 import useAuth from "../../hooks/auth/useAuth";
 
 const Login = () => {
@@ -81,6 +82,7 @@ const Login = () => {
                 Login
               </button>
             </div>
+            <SocialLogin />
           </form>
         </div>
       </div>

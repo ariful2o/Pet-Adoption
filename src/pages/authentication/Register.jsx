@@ -2,6 +2,7 @@ import { updateProfile } from "firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import registerImg from "../../assets/adopt-a-pet/registerImage.jpg";
+import SocialLogin from "../../componts/SocialLogin";
 import auth from "../../firebase/firebase.conf";
 import useAuth from "../../hooks/auth/useAuth";
 
@@ -99,8 +100,8 @@ const Register = () => {
                 Sign Up
               </button>
             </div>
+            <SocialLogin />
           </form>
-          {/* <SocialSignin /> */}
         </div>
       </div>
     </div>

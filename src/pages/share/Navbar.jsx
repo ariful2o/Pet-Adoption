@@ -7,14 +7,13 @@ import "./navber.css";
 export default function Navbar() {
   const { user, logOutUser } = useContext(AuthContext)
   const [theme, setTheme] = useState('light');
-  const { displayName,  photoURL } = useUser()
+  const { displayName, photoURL } = useUser()
 
   const links = <>
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/doglist'>Dog List</Link></li>
     <li><Link to='/catlist'>Cat List</Link></li>
     <li><Link to='/shop'>Shop</Link></li>
-    <li><Link to='/adoption'>Adoption</Link></li>
     <li><Link to='/DonationCampaigns'>Donation Campaigns</Link></li>
     <li><Link to='/blog'>Blogs</Link></li>
     <li><Link to='/contacts'>Contacts</Link></li>

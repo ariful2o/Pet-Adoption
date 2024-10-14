@@ -42,7 +42,7 @@ const DonationDetails = () => {
       {/* Campaign Details Section */}
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-2"><span className='text-gray-400'>Pet Name :</span> {petName}</h1>
-        <img className='w-full ' src={petPicture} alt="" />
+        <img className='w-full max-h-96 lg:max-h-[600px]' src={petPicture} alt="" />
         <p className="text-gray-600 mb-4">Last Date: {lastDate}</p>
         <p className="text-gray-600 mb-4">Max Donation Amount: ${maxDonationAmount}</p>
         <p className="text-gray-700 mb-4">
@@ -71,7 +71,7 @@ const DonationDetails = () => {
               key={campaign._id}
               className="border p-4 rounded-lg shadow-lg"
             >
-              <img src={campaign.petPicture} alt={campaign.petName} className="w-full h-32 object-cover rounded-lg" />
+              <img src={campaign.petPicture} alt={campaign.petName} className="w-full h-56 object-cover rounded-lg" />
               <h2 className="text-xl font-semibold">{campaign.petName}</h2>
               <p>Last Date: {campaign.lastDate}</p>
               <p>Max Donation: ${campaign.maxDonationAmount}</p>

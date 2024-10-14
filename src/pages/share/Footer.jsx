@@ -1,4 +1,4 @@
-import React from 'react'
+
 import petlogo from '../../assets/icons/Frame (1).svg'
 
 export default function Footer() {
@@ -33,7 +33,7 @@ export default function Footer() {
             </footer>
             <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
                 <aside className="grid-flow-col items-center">
-                   <img className='w-8 h-8' src={petlogo} alt="" />
+                    <img className='w-8 h-8' src={petlogo} alt="" />
                     <p>
                         Pet Adoption
                         <br />

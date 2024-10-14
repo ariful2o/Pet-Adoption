@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Tooltip } from 'react-tooltip';
 import Swal from 'sweetalert2';
@@ -12,16 +12,16 @@ import useUser from '../../hooks/userInfo/useUser';
 
 export default function MyaddPet() {
     const axiosSecure = useAxiosSecure()
-    const { displayName, email, photoURL } = useUser();
+    const { email, } = useUser();
 
 
     const [page, setPage] = useState(1); // State for current page
     const [limit] = useState(10); // Number of items per page
 
-    const { data, isLoading, isError, refetch } = useQuery({
+    const { data, isLoading,  refetch } = useQuery({
         queryKey: ["mypets", page],
         queryFn: async () => {
-            const response = await axiosSecure.post(`/mypets?page=${page}&limit=${limit}`,{email});
+            const response = await axiosSecure.post(`/mypets?page=${page}&limit=${limit}`, { email });
             return response.data;
         },
         refetchOnWindowFocus: false,
@@ -59,8 +59,7 @@ export default function MyaddPet() {
     };
 
     const handleAdoptPet = (petId) => {
-        // Logic to mark pet as adopted
-        // setPets(pets.map(pet => pet.id === petId ? { ...pet, adopted: true } : pet));
+       console.log(petId);
     };
 
     const handleNextPage = () => {
@@ -93,21 +92,21 @@ export default function MyaddPet() {
                     </tbody>
                 </table>
                 <div className="flex justify-between mt-4">
-                        <button onClick={handlePrevPage} disabled={page === 1}>
-                            Previous
-                        </button>
-                        <span>Page {page} of {totalPages}</span>
-                        <button onClick={handleNextPage} disabled={page === totalPages}>
-                            Next
-                        </button>
-                    </div>
+                    <button onClick={handlePrevPage} disabled={page === 1}>
+                        Previous
+                    </button>
+                    <span>Page {page} of {totalPages}</span>
+                    <button onClick={handleNextPage} disabled={page === totalPages}>
+                        Next
+                    </button>
+                </div>
             </div>
             {/* Tooltips rendered outside the table structure */}
             <Tooltip id="tooltip-update" content="Update" />
             <Tooltip id="tooltip-delete" content="Delete" />
             <Tooltip id="tooltip-adopted" content="Adopted" />
 
-            
+
         </div>
     )
 }

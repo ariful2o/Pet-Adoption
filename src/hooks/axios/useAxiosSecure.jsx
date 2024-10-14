@@ -10,9 +10,9 @@ const instance = axios.create({
 
 const useAxiosSecure = () => {
 
-  
-  
-  
+
+
+
   // Add a request interceptor
   instance.interceptors.request.use(function (config) {
     // Do something before request is sent

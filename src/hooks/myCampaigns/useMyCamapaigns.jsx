@@ -1,10 +1,9 @@
 import { useQuery } from "react-query";
-import useAxiosPublic from "../axios/useAxiosPublic";
 import useAxiosSecure from "../axios/useAxiosSecure";
 import useUser from "../userInfo/useUser";
 
 export default function useMyCampaigns() {
-    const axiosSecure=useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
     const { email } = useUser(); // Get user's email from context or state management library.
     const { data: mycampaigns = [], refetch, isLoading, isError } = useQuery({
         queryKey: ["mycampaigns", email], // Include email in query key for better cache management

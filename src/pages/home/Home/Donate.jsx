@@ -1,4 +1,4 @@
-import React from 'react'
+
 import pet from '../../../../src/assets/icons/Frame (1).svg'
 import donate from '../../../../src/assets/icons/Frame (5).svg'
 import pledge from '../../../../src/assets/icons/Frame (6).svg'

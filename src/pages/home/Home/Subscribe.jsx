@@ -1,4 +1,4 @@
-import React from 'react'
+
 import dogs from "../../../assets/cat & dog/Image (4).png"
 import mail from "../../../assets/icons/Vector.svg"
 

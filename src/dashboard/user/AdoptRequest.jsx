@@ -1,5 +1,4 @@
-import { async } from '@firebase/util';
-import React from 'react';
+
 import { FcCancel, FcOk } from "react-icons/fc";
 import { useQuery } from 'react-query';
 import { Tooltip } from 'react-tooltip';
@@ -40,7 +39,7 @@ export default function AdoptRequest() {
     if (updatePetStatus.data.acknowledged) {
 
       const upddteStatus = { status: "Accepted" }
-      const updateReqestStatus = await axiosSecure.put(`/adoptrequests/${requestId}`, updateStatus)
+      const updateReqestStatus = await axiosSecure.put(`/adoptrequests/${requestId}`, upddteStatus)
 
       if (updateReqestStatus.data.acknowledged) {
         Swal.fire({
@@ -143,7 +142,7 @@ export default function AdoptRequest() {
           }
           {
             myRequest.map((req, index) => {
-              const { name, address, date, email, petId, phone, _id: userid, status } = req
+              const { name, address, date, email, phone, _id: userid, status } = req
               const dateSliet = date.split("T")[0]
               return (
                 <tr key={userid} className="hover">

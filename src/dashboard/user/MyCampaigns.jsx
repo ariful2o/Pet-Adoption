@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
+import  { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 import useMyCamapaigns from "../../hooks/myCampaigns/useMyCamapaigns";
-import useMyDonations from "../../hooks/myDonations/useMyDonations";
 
 const MyCampaigns = () => {
   const [donators, setDonators] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const { mycampaigns, refetch, isLoading, isError } = useMyCamapaigns();
+  const { mycampaigns, refetch, isLoading, } = useMyCamapaigns();
   // const [myDonations] = useMyDonations();
   const axiosSecure = useAxiosSecure();
 
@@ -52,6 +51,7 @@ const MyCampaigns = () => {
 
   const handlePauseToggle = (id) => {
     // console.log(`Toggled pause for campaign ID: ${id}`);
+    console.log(id);
   };
 
   return (

@@ -5,7 +5,7 @@ import useUser from "../userInfo/useUser"
 
 
 export default function useMyPets() {
-    const { displayName, email, photoURL } = useUser()
+    const { email, } = useUser()
     const axiosSecure = useAxiosSecure()
     const { data: mypets = [], refetch } = useQuery({
         queryKey: ["mypets", email],
@@ -20,5 +20,5 @@ export default function useMyPets() {
         refetchOnWindowFocus: false, // Prevent refetch on window focus
         retry: false, // Disable retrying on failure
     })
-  return [mypets, refetch]
+    return [mypets, refetch]
 }

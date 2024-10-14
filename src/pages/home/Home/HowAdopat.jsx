@@ -1,4 +1,4 @@
-import React from 'react'
+
 import image from "../../../assets/cat & dog/Image.png"
 import catfoet from "../../../assets/icons/Frame (1).svg"
 import contacticon from "../../../assets/icons/Frame (2).svg"

@@ -79,11 +79,11 @@ const router = createBrowserRouter([
             }, {
                 path: "/blog",
                 element: <Blogs></Blogs>
-            },{
-                path:"addblog",
+            }, {
+                path: "addblog",
                 element: <PrivateRoute><AddBlog /></PrivateRoute>
-            },{
-                path:"/blogs/:id",
+            }, {
+                path: "/blogs/:id",
                 element: <BlogDetails />,
             }
         ]
@@ -99,11 +99,11 @@ const router = createBrowserRouter([
             }, {
                 path: "/dashboard/alldonations",
                 element: <PrivateRoute><AllDonation /></PrivateRoute>
-            },{
-                path:"/dashboard/allpets",
+            }, {
+                path: "/dashboard/allpets",
                 element: <PrivateRoute><AllPets /></PrivateRoute>
-            },{
-                path:"/dashboard/adminhome",
+            }, {
+                path: "/dashboard/adminhome",
                 element: <PrivateRoute><AdminHome /></PrivateRoute>
             },
             // user routes

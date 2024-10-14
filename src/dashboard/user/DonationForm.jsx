@@ -1,5 +1,5 @@
-import { async } from "@firebase/util";
-import React, { useState } from "react";
+
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Dropzone from "../../componts/DropZone";
@@ -8,8 +8,8 @@ import { uploadToImgbb } from "../../hooks/imageUpload/useImageUpload";
 import useUser from "../../hooks/userInfo/useUser";
 
 const DonationForm = () => {
-    const [file, setFile] = useState(null);
-    const { displayName, email, photoURL }=useUser()
+  const [file, setFile] = useState(null);
+  const { email, } = useUser()
   const [formData, setFormData] = useState({
     petName: "",
     maxDonationAmount: "",
@@ -17,8 +17,8 @@ const DonationForm = () => {
     shortDescription: "",
     longDescription: "",
   });
-  const axiosSecure=useAxiosSecure()
-  const navigate=useNavigate()
+  const axiosSecure = useAxiosSecure()
+  const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,12 +32,12 @@ const DonationForm = () => {
   const handleFileChange = (file) => {
     setFile(file)
   };
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const uplodeImageIMGBB= await uploadToImgbb(file)
-    const createCampainData={...formData,petPicture:uplodeImageIMGBB}
+    const uplodeImageIMGBB = await uploadToImgbb(file)
+    const createCampainData = { ...formData, petPicture: uplodeImageIMGBB }
 
-    const createCampain= await axiosSecure.post("/createcampain",createCampainData)
+    const createCampain = await axiosSecure.post("/createcampain", createCampainData)
     if (createCampain.data.acknowledged) {
       Swal.fire({
         position: "top-end",
@@ -69,7 +69,7 @@ const DonationForm = () => {
             {/* Maximum Donation Amount */}
             <div className="flex items-center">
               <label className="block text-gray-700 font-semibold w-1/3">
-                   Pet Name
+                Pet Name
               </label>
               <input
                 type="text"

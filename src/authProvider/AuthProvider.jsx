@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import React, { createContext, useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import auth from "../firebase/firebase.conf";
 import useAxiosPublic from "../hooks/axios/useAxiosPublic";
@@ -43,45 +44,37 @@ export default function AuthProvider({ children }) {
       setLoading(true); // Start loading state
       setUser(currentUser);
       setLoading(false); // End loading when done
-      
-      
+
+
       // Get user information if user is logged in
       const loginEmail = { email: currentUser?.email || user.email };
       const loginName = { name: currentUser?.displayName || user.displayName };
-      
-      
-      
+
+
+
       const details = { name: loginName.name, email: loginEmail.email }
       if (currentUser) {
         axiosSecure.post('/jwt', loginEmail)
-          .then((res) => {
-            
+          .then(() => {
+
             // add user database
             axiosPublic.post("/user", details)
-              .then((response) => {
+              .then(() => {
               })
 
           })
       } else {
         axiosSecure.post("/logout", loginEmail)
-        then(() => {
-          setLoading(false); // End loading when done
-        })
+          .then(() => {
+            setLoading(false); // End loading when done
+          })
       }
     });
     return () => unSubscribe();
-  }, [user, axiosSecure]); // Dependency on axiosSecure
+  }, [user, axiosSecure, axiosPublic]); // Dependency on axiosSecure
 
 
-  const authinfo = {
-    user,
-    setUser,
-    loading,
-    setLoading,
-    logOutUser,
-    registerUser,
-    loginUser,
-  };
+  const authinfo = { user, setUser, loading, setLoading, logOutUser, registerUser, loginUser, };
 
   return (
     <AuthContext.Provider value={authinfo}>
@@ -89,3 +82,7 @@ export default function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

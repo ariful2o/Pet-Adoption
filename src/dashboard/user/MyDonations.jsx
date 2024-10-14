@@ -1,10 +1,10 @@
-import React from 'react'
+
 import Swal from 'sweetalert2'
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure'
 import useMyDonations from '../../hooks/myDonations/useMyDonations'
 
 export default function MyDonations() {
-    const [myDonations, isLoading,refetch] = useMyDonations()
+    const [myDonations, isLoading, refetch] = useMyDonations()
     const axiosSecure = useAxiosSecure()
     if (isLoading) return <div>Loading...</div>
 

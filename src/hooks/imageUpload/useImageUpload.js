@@ -1,5 +1,4 @@
 
-
 const uploadToImgbb = async (file) => {
     const apiKey = import.meta.env.VITE_imgBB_api_key; // Replace with your Imgbb API key
     const formData = new FormData();

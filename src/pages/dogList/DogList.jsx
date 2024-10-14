@@ -1,8 +1,8 @@
-import React from 'react'
+
 import { Helmet } from 'react-helmet-async';
 import Cart from '../../componts/Cart';
 import TitleBanner from '../../componts/TitleBanner';
-import useDogs from '../../hooks/dogs/useDogs'
+import useDogs from '../../hooks/dogs/useDogs';
 
 export default function DogList() {
   const [dogs] = useDogs()

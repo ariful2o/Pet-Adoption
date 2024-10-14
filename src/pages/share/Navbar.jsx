@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 import useUser from '../../hooks/userInfo/useUser';
@@ -7,7 +7,7 @@ import "./navber.css";
 export default function Navbar() {
   const { user, logOutUser } = useContext(AuthContext)
   const [theme, setTheme] = useState('light');
-  const { displayName, email, photoURL } = useUser()
+  const { displayName,  photoURL } = useUser()
 
   const links = <>
     <li><Link to='/'>Home</Link></li>

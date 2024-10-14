@@ -1,8 +1,8 @@
-import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-export default function TitleBanner({ section,image }) {
-    const navigate = useNavigate()
+export default function TitleBanner({ section, image }) {
+
     return (
         <div
             className="hero h-80"
@@ -23,4 +23,10 @@ export default function TitleBanner({ section,image }) {
             </div>
         </div>
     )
+}
+
+
+TitleBanner.propTypes = {
+    section: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
 }

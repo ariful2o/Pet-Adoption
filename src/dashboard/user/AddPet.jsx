@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import Swal from 'sweetalert2';
 import Dropzone from '../../componts/DropZone';
@@ -135,7 +135,7 @@ const AddPet = () => {
 
               <div className="mb-4 w-full">
                 <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender:
-                <span className="text-red-400"></span>
+                  <span className="text-red-400"></span>
                 </label>
                 <Select
                   name="gender"

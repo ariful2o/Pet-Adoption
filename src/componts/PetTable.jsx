@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { GrUpdate } from "react-icons/gr";
 import { MdOutlinePets } from "react-icons/md";
 import { RiChatDeleteLine } from "react-icons/ri";
@@ -54,4 +54,11 @@ export default function PetTable({ pet, index, handleDeletePet }) {
 
         </>
     );
+}
+
+
+PetTable.propTypes = {
+    pet: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired,
+    handleDeletePet: PropTypes.func.isRequired,
 }

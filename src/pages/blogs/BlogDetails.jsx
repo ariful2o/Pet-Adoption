@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react';
 import { FaRegCommentDots } from 'react-icons/fa6';
+import { FcSms } from "react-icons/fc";
 import { useQuery } from 'react-query';
-import { useLoaderData, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
 import useUser from '../../hooks/userInfo/useUser';
-import { FcSms } from "react-icons/fc";
-import Swal from 'sweetalert2';
 
 export default function BlogDetails() {
-  const { displayName, email, photoURL } = useUser()
+  const { displayName, photoURL } = useUser()
   const [showComment, setShowComment] = useState(false)
 
   const id = useParams().id
@@ -35,12 +35,12 @@ export default function BlogDetails() {
     if (postComment.data.acknowledged) {
       e.target.comment.value = ''
       Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Your comment has been post",
-  showConfirmButton: false,
-  timer: 1500
-});
+        position: "top-end",
+        icon: "success",
+        title: "Your comment has been post",
+        showConfirmButton: false,
+        timer: 1500
+      });
       refetch()
     }
   }
@@ -61,11 +61,11 @@ export default function BlogDetails() {
         </div>
         <div className="flex gap-5">
           <button className="btn" onClick={() => setShowComment(!showComment)}>
-            <FaRegCommentDots className='text-3xl'  />
+            <FaRegCommentDots className='text-3xl' />
             Comments
             <div className="badge">{data?.comments?.length}</div>
           </button>
-          <label htmlFor="my_modal_7" className="btn"><FcSms /></label> 
+          <label htmlFor="my_modal_7" className="btn"><FcSms /></label>
         </div>
       </div>
       {

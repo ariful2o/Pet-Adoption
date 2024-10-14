@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import useMyCamapaigns from "../../hooks/myCampaigns/useMyCamapaigns";
-import { useQuery } from 'react-query'
-import useAxiosSecure from '../../hooks/axios/useAxiosSecure'
+import { useEffect, useState } from "react";
+import { useQuery } from 'react-query';
+import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
 
 export default function AllDonation() {
   const axiosSecure = useAxiosSecure()
   const [donators, setDonators] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState({});
   const [showModal, setShowModal] = useState(false);
-  
-  const { data: alldonations = [], refetch, isLoading, isError } = useQuery({
+
+  const { data: alldonations = [],  isLoading, } = useQuery({
     queryKey: ['alldonations'],
     queryFn: async () => {
       const response = await axiosSecure.get('/alldonations')

@@ -1,21 +1,20 @@
 import {
-    FaBook, FaHome,
+    FaHome,
     FaList, FaUsers
 } from "react-icons/fa";
-import { FcHome } from "react-icons/fc";
 import { FaSackDollar } from "react-icons/fa6";
-import { HiViewGridAdd } from "react-icons/hi";
+import { FcHome } from "react-icons/fc";
 import { IoIosGitPullRequest } from "react-icons/io";
 import { LiaDonateSolid } from "react-icons/lia";
 import {
     MdOutlineCampaign,
-    MdOutlineFoodBank, MdPets, MdPlaylistAddCheckCircle
+    MdPets, MdPlaylistAddCheckCircle
 } from "react-icons/md";
 
+import { Helmet } from "react-helmet-async";
 import { SiBookmyshow } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/isAdmin/useAdmin";
-import { Helmet } from "react-helmet-async";
 
 export default function Dashboard() {
     const [isAdmin, isPending] = useAdmin();

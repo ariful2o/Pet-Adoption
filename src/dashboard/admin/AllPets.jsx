@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Tooltip } from 'react-tooltip';
 import Swal from 'sweetalert2';
@@ -19,7 +19,7 @@ export default function AllPets() {
         refetchOnWindowFocus: false,
         retry: false,
     });
-    
+
     const allpets = data?.pets || [];
     const totalPages = data?.totalPages || 1;
 
@@ -51,6 +51,7 @@ export default function AllPets() {
 
     const handleAdoptPet = (petId) => {
         // Logic to mark pet as adopted
+        console.log(petId);
     };
 
     const handleNextPage = () => {

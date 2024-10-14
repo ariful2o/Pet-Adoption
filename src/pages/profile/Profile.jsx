@@ -1,5 +1,5 @@
 import { updateProfile } from 'firebase/auth';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 import Dropzone from '../../componts/DropZone';
 import auth from '../../firebase/firebase.conf';
@@ -9,9 +9,9 @@ import useUser from '../../hooks/userInfo/useUser';
 
 export default function Profile() {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
-    const { displayName, email, photoURL }=useUser()
+    const { displayName, email, photoURL } = useUser()
     const [file, setFile] = useState(null);
-    const {logOutUser}=useAuth()
+    const { logOutUser } = useAuth()
 
     const handleFileChange = (file) => {
         setFile(file); // Update the file state in the parent
@@ -25,13 +25,13 @@ export default function Profile() {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
-        const email = form.email.value;
+        // const email = form.email.value;
 
         // file uploade imgbb
         const imgUpliadIMGBB = await uploadToImgbb(file)
 
         // update user profile firebase
-        const updateUserProfile = await updateProfile(auth.currentUser, {
+        await updateProfile(auth.currentUser, {
             displayName: name, photoURL: imgUpliadIMGBB
         }).then(() => {
             Swal.fire({
@@ -79,7 +79,7 @@ export default function Profile() {
                             <li>
                                 <p onClick={logOutUser} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Log Out</p>
                             </li>
-                           
+
                         </ul>
                     </div>
                 )}
@@ -136,4 +136,4 @@ export default function Profile() {
 
         </div>
     );
-};
+}

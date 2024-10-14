@@ -64,7 +64,7 @@ const Login = () => {
               />
               <label className="label mt-2">
                 <p className="text-sm">
-                  You don't have an account?{" "}
+                  You don&apos;t have an account?{" "}
                   <NavLink
                     to="/register"
                     className="text-blue-600 hover:text-red-600 font-bold"

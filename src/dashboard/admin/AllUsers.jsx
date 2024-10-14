@@ -3,7 +3,6 @@ import { FaUsers } from "react-icons/fa";
 import { useQuery } from "react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
-// import SectionTitle from "../../../../components/sectionHeading/SectionTitle";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -67,10 +66,7 @@ const AllUsers = () => {
   };
   return (
     <section>
-      {/* <SectionTitle
-        title="MANAGE ALL USERS"
-        subtitle="---How many??---"
-      ></SectionTitle> */}
+
       <div className="overflow-x-auto bg-white p-8 mx-8">
         <h2 className="text-2xl font-bold">Total users: {allUsers.length}</h2>
         <table className="table mt-10">

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
 import TitleBanner from '../../componts/TitleBanner';
@@ -7,7 +7,7 @@ import useBlogs from '../../hooks/blogs/useBlogs';
 
 
 export default function Blogs() {
-  const { blogs, isLoading, refetch, isError } = useBlogs()
+  const { blogs, isLoading, refetch } = useBlogs()
   return (
     <section>
       <Helmet>
@@ -19,7 +19,7 @@ export default function Blogs() {
           {
             blogs.map(blog => {
               return (
-                <div className="card glass w-full">
+                <div key={blog._id} className="card glass w-full">
                   <figure>
                     <img
                       className='h-80 w-full'

@@ -1,7 +1,7 @@
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { NavLink, useParams } from 'react-router-dom';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
@@ -34,7 +34,7 @@ const DonationDetails = () => {
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
-  const { email, lastDate, longDescription, maxDonationAmount, petName, petPicture, shortDescription, _id } = campaign
+  const {  lastDate, longDescription, maxDonationAmount, petName, petPicture, shortDescription, _id } = campaign
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       {/* Campaign Details Section */}
@@ -64,7 +64,7 @@ const DonationDetails = () => {
         <h2 className="text-xl font-bold mb-4">Recommended Campaigns</h2>
         <div className="grid grid-cols-3 gap-4">
           {/* Example Campaign Cards */}
-          {mycampaigns.map((campaign, index) => (
+          {mycampaigns.map((campaign) => (
             <div
               key={campaign._id}
               className="border p-4 rounded-lg shadow-lg"

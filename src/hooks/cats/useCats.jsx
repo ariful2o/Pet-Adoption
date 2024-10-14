@@ -3,7 +3,7 @@ import useAxiosPublic from '../axios/useAxiosPublic';
 
 export default function useCats() {
     const axiosPublic = useAxiosPublic();
-    
+
     const { data: cats = [], refetch } = useQuery({
         queryKey: ['cats'],
         queryFn: async () => {
@@ -17,6 +17,6 @@ export default function useCats() {
         refetchOnWindowFocus: false, // Prevent refetch on window focus
         retry: false, // Disable retrying on failure
     });
-    
+
     return [cats, refetch];
 }

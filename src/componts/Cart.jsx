@@ -1,8 +1,8 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink, useLocation } from 'react-router-dom';
 
 export default function Cart({ data }) {
-  const { name, age, petCategory, petLocation, description, longDescription, breed, gender, adoptionFee, weight, image, dateAdded, status, author,
+  const { name, age, petLocation, description, breed, gender, adoptionFee, weight, image, status,
     _id } = data;
 
   const location = useLocation();
@@ -50,4 +50,10 @@ export default function Cart({ data }) {
       </div>
     </div>
   )
+}
+
+
+Cart.propTypes = {
+  data: PropTypes.object.isRequired,
+
 }

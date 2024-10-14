@@ -1,11 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Dropzone from '../../componts/DropZone';
 import useAuth from '../../hooks/auth/useAuth';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
-import useBlogs from '../../hooks/blogs/useBlogs';
 import { uploadToImgbb } from '../../hooks/imageUpload/useImageUpload';
 import useUser from '../../hooks/userInfo/useUser';
 
@@ -54,7 +53,7 @@ export default function AddBlog() {
                             dateAdded: new Date().toISOString(),
                             author: { displayName, email, photoURL }
                         };
-                        
+
                         const result = await axiosSecure.post("/addblog", blogdata)
                         if (result.data.acknowledged) {
                             Swal.fire({
@@ -78,7 +77,7 @@ export default function AddBlog() {
                     }
                 }}
             >
-                {({ setFieldValue, isSubmitting }) => (
+                {({ isSubmitting }) => (
                     <Form>
                         <div className="mb-4 ">
                             <label htmlFor="petImage" className="block text-sm font-medium text-gray-700"> Image:</label>

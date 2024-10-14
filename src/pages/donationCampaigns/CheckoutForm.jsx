@@ -1,22 +1,23 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import PropTypes from 'prop-types';
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 import useUser from "../../hooks/userInfo/useUser";
 
-const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,petPicture}) => {
+const CheckoutForm = ({ amount, closeModal, maxDonationAmount, petName, campaignId, petPicture }) => {
   const axiosSecure = useAxiosSecure();
-  const { displayName, email, photoURL }=useUser()
+  const { displayName, email, } = useUser()
   const [errorMessage, setErrorMessage] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const [payId,setPayId] = useState("");
+  const [payId, setPayId] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
 
   useEffect(() => {
     axiosSecure
-      .post("/create-payment-intent", {amount})
+      .post("/create-payment-intent", { amount })
       .then((response) => {
         setClientSecret(response.data.clientSecret);
       });
@@ -41,7 +42,7 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,pe
     }
 
     // Use your card Element with other Stripe.js APIs
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error, } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
@@ -59,7 +60,7 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,pe
         payment_method: {
           card: card,
           billing_details: {
-            name:displayName || "anonymous",
+            name: displayName || "anonymous",
             email: email || "anonymous",
           },
         },
@@ -68,7 +69,7 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,pe
     if (confirmError) {
       console.log("confirm error: " + confirmError);
     } else {
-        // console.log("success", paymentIntent);
+      // console.log("success", paymentIntent);
       if (paymentIntent.status === "succeeded") {
         setPayId(paymentIntent.id)
         Swal.fire({
@@ -79,20 +80,20 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,pe
           timer: 1500,
         });
         const paymentDetails = {
-          email,campaignId,petPicture,
-          donnerName:displayName,
+          email, campaignId, petPicture,
+          donnerName: displayName,
           petName: petName,
           maxDonation: maxDonationAmount,
           currentDonation: amount,
           isPaused: false,
-          donators:[
-            {displayName,amount}
+          donators: [
+            { displayName, amount }
           ],
           transactionId: paymentIntent.id,
           time: new Date(),
           status: paymentIntent.status,
         };
-        const res = await axiosSecure.post("/paymentsucess", paymentDetails);
+        await axiosSecure.post("/paymentsucess", paymentDetails);
         // console.log(res.data,"Clear the cart");
         closeModal()
       }
@@ -104,21 +105,30 @@ const CheckoutForm = ({amount,closeModal,maxDonationAmount,petName,campaignId,pe
     <div className="max-w-96 mx-auto">
       {/* <p>Total Pay : $ {amount}</p> */}
       <form onSubmit={handleSubmit}>
-      <CardElement className="border p-4 rounded" />
-      <button
-        type="submit"
-        disabled={!stripe}
-        className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 mt-4"
-      >
-        Donate ${amount}
-      </button>
-    </form>
+        <CardElement className="border p-4 rounded" />
+        <button
+          type="submit"
+          disabled={!stripe}
+          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 mt-4"
+        >
+          Donate ${amount}
+        </button>
+      </form>
       {errorMessage && <div className="text-red-500 mt-10">{errorMessage}</div>}
-      {payId.id&&
-      <p className="text-center text-green-700 mt-10">{payId.id}</p>
+      {payId.id &&
+        <p className="text-center text-green-700 mt-10">{payId.id}</p>
       }
     </div>
   );
 };
 
 export default CheckoutForm;
+
+CheckoutForm.propTypes = {
+  amount: PropTypes.number.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  maxDonationAmount: PropTypes.number.isRequired,
+  petName: PropTypes.string.isRequired,
+  campaignId: PropTypes.string.isRequired,
+  petPicture: PropTypes.string.isRequired,
+}

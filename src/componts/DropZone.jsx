@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useCallback, useState } from 'react';
 
 const Dropzone = ({ onFileChange }) => {
     const [fileName, setFileName] = useState('');
@@ -46,7 +47,7 @@ const Dropzone = ({ onFileChange }) => {
             <div className={preview ? "flex flex-col items-center justify-center w-1/2" : "flex flex-col items-center justify-center w-full"}>
                 <label
                     htmlFor="dropzone-file"
-                    className={!preview?"flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600":"flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 "}
+                    className={!preview ? "flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600" : "flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 "}
                     onDrop={handleDrop}
                     onDragOver={handleDragOver}
                 >
@@ -78,22 +79,27 @@ const Dropzone = ({ onFileChange }) => {
                         onChange={handleFileChange}
                     />
                 </label>
-                
+
             </div>
             {preview && (
                 <div className="mt-0 w-1/2">
                     <img src={preview} alt="Preview" className="w-full mt-12 h-64 rounded-lg" />
                     {fileName && (
-                    <div className="mt-4 text-xs mx-auto text-gray-700 ">
-                        Selected file: <span className="font-semibold">{fileName}</span>
-                    </div>
-                )}
+                        <div className="mt-4 text-xs mx-auto text-gray-700 ">
+                            Selected file: <span className="font-semibold">{fileName}</span>
+                        </div>
+                    )}
                 </div>
-                
+
             )}
-            
+
         </div>
     );
 };
 
 export default Dropzone;
+
+
+Dropzone.propTypes = {
+    onFileChange: PropTypes.func.isRequired,
+};

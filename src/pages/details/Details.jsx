@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
@@ -6,10 +6,10 @@ import useUser from '../../hooks/userInfo/useUser';
 
 export default function Details() {
     const details = useLoaderData()
-    const { displayName, email, photoURL } = useUser()
+    const { displayName, email, } = useUser()
     const axiosSecure = useAxiosSecure()
 
-    const { name, age, petCategory, petLocation, description, longDescription, breed, gender, adoptionFee, weight, image, dateAdded, status, author,
+    const { name, age, petLocation, description, longDescription, breed, gender, adoptionFee, weight, image, dateAdded, status,
         _id } = details;
 
     const dateOnly = dateAdded?.split("T")[0];
@@ -22,11 +22,11 @@ export default function Details() {
         const phone = form.phone.value;
         const address = form.address.value;
 
-        const information = { name, email, phone, address, petId: _id, date: new Date() ,status:"Pending" };
-        
+        const information = { name, email, phone, address, petId: _id, date: new Date(), status: "Pending" };
+
         // Send the information to the server for adoption
         axiosSecure.post('/pets/adoption', information)
-            .then((res) => {
+            .then(() => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",

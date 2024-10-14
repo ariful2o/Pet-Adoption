@@ -1,4 +1,4 @@
-import React from 'react'
+
 import image2 from "../../../assets/cat & dog/Mask group (1).png"
 import image3 from "../../../assets/cat & dog/Mask group (2).png"
 import image4 from "../../../assets/cat & dog/Mask group (3).png"
@@ -27,7 +27,7 @@ export default function FindFriends() {
                 <div className='w-full'>
                     <h1 className="text-2xl lg:text-5xl font-medium text-[#0E2515] leading-10 lg:leading-[60px]">Find Out Which Furry Friends Fits You Best!</h1>
                     <p className="py-6 text-lg font-normal text-[#8C8C8C]">
-                        Take a stroll through our furry family and uncover the ideal companion that perfectly matches your lifestyle and personality. Whether you're seeking a playful pal for outdoor adventures or a cuddly companion for cozy nights in, our diverse selectio
+                        Take a stroll through our furry family and uncover the ideal companion that perfectly matches your lifestyle and personality. Whether you`re seeking a playful pal for outdoor adventures or a cuddly companion for cozy nights in, our diverse selectio
                     </p>
                     <CustomBtn text="Explore More"></CustomBtn>
                 </div>

@@ -34,7 +34,9 @@ const DonationDetails = () => {
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
-  const {  lastDate, longDescription, maxDonationAmount, petName, petPicture, shortDescription, _id } = campaign
+  const { lastDate, longDescription, maxDonationAmount, petName, petPicture, shortDescription, _id } = campaign
+
+  if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       {/* Campaign Details Section */}

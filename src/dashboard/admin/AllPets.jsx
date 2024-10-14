@@ -66,7 +66,7 @@ export default function AllPets() {
         <div className="p-4">
             <h1 className="text-2xl font-bold">All Pets : {data?.totalPets || 0}</h1>
             {isLoading ? (
-                <p>Loading...</p>
+                <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
             ) : isError ? (
                 <p>Something went wrong. Please try again later.</p>
             ) : (

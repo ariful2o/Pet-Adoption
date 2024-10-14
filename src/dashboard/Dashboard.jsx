@@ -19,6 +19,8 @@ import useAdmin from "../hooks/isAdmin/useAdmin";
 export default function Dashboard() {
     const [isAdmin, isPending] = useAdmin();
 
+
+if (isPending) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
     const navlists = <>
         <div className="">
             {isAdmin &&

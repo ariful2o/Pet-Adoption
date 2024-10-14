@@ -5,7 +5,10 @@ import TitleBanner from '../../componts/TitleBanner'
 import useCats from '../../hooks/cats/useCats'
 
 export default function CatList() {
-  const [cats, refetch] = useCats()
+  const [cats, refetch,isLoading] = useCats()
+
+
+if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
   return (
     <section>
       <Helmet>

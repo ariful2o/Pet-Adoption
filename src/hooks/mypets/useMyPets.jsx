@@ -7,7 +7,7 @@ import useUser from "../userInfo/useUser"
 export default function useMyPets() {
     const { email, } = useUser()
     const axiosSecure = useAxiosSecure()
-    const { data: mypets = [], refetch } = useQuery({
+    const { data: mypets = [], refetch,isLoading } = useQuery({
         queryKey: ["mypets", email],
         queryFn: async () => {
             const response = await axiosSecure.post(`/mypets`, { email })
@@ -20,5 +20,5 @@ export default function useMyPets() {
         refetchOnWindowFocus: false, // Prevent refetch on window focus
         retry: false, // Disable retrying on failure
     })
-    return [mypets, refetch]
+    return [mypets, refetch,isLoading]
 }

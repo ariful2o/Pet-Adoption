@@ -43,7 +43,7 @@ export default function AllDonation() {
     }
   }, [alldonations, axiosSecure]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
 
   const toggleModal = async (id) => {
     try {

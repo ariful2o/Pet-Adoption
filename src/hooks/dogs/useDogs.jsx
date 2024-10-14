@@ -4,7 +4,7 @@ import useAxiosPublic from '../axios/useAxiosPublic'
 export default function useDogs() {
     const axiosPublic = useAxiosPublic()
 
-    const { data: dogs = [], refetch } = useQuery({
+    const { data: dogs = [], refetch ,isLoading} = useQuery({
         queryKey: ['dogs'],
         queryFn: async () => {
             const response = await axiosPublic.get('/dogs')
@@ -17,5 +17,5 @@ export default function useDogs() {
         refetchOnWindowFocus: false, // Prevent refetch on window focus
         retry: false, // Disable retrying on failure
     })
-    return [dogs, refetch];
+    return [dogs, refetch,isLoading];
 }

@@ -70,6 +70,8 @@ export default function MyaddPet() {
         if (page > 1) setPage((prev) => prev - 1);
     };
 
+    if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
+
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold">My Added Pets : {allpets.length}</h1>

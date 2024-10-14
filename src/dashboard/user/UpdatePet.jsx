@@ -27,7 +27,7 @@ export default function UpdatePet() {
   const id = useParams()
   const { displayName, email, photoURL } = useUser();
   const [file, setFile] = useState(null);
-  const [mypets, refetch] = useMyPets()
+  const [mypets, refetch,isLoading] = useMyPets()
   const navigate = useNavigate()
 
 
@@ -38,6 +38,8 @@ export default function UpdatePet() {
     setFile(file);
   };
   const { age, petCategory, petLocation, description, longDescription, breed, gender, adoptionFee, weight, name, _id } = updateItem
+
+if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Update Your Pet</h2>

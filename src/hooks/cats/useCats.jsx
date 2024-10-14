@@ -4,7 +4,7 @@ import useAxiosPublic from '../axios/useAxiosPublic';
 export default function useCats() {
     const axiosPublic = useAxiosPublic();
 
-    const { data: cats = [], refetch } = useQuery({
+    const { data: cats = [], refetch,isLoading } = useQuery({
         queryKey: ['cats'],
         queryFn: async () => {
             const response = await axiosPublic.get('/cats');
@@ -18,5 +18,5 @@ export default function useCats() {
         retry: false, // Disable retrying on failure
     });
 
-    return [cats, refetch];
+    return [cats, refetch,isLoading];
 }

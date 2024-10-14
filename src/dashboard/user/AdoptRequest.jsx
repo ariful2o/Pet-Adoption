@@ -12,7 +12,7 @@ export default function AdoptRequest() {
   const axiosSecure = useAxiosSecure()
   const { email } = useUser()
   const axiosPublic = useAxiosPublic()
-  const [myRequest, refetch] = useMyRequest()
+  const [myRequest, refetch,isLoading] = useMyRequest()
 
   const { data: request = [] } = useQuery({
     queryKey: ['adoptionRequest'],
@@ -68,6 +68,8 @@ export default function AdoptRequest() {
     }
   }
 
+
+if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
   return (
     <div className="overflow-x-auto">
       <h2 className="">My Pet Request</h2>

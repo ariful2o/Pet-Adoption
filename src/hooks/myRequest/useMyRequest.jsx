@@ -6,7 +6,7 @@ export default function useMyRequest() {
     const axiosPublic = useAxiosPublic()
     const { email } = useUser()
 
-    const { data: myRequest = [], refetch } = useQuery({
+    const { data: myRequest = [], refetch ,isLoading} = useQuery({
         queryKey: ['myRequest'],
         queryFn: async () => {
             const response = await axiosPublic.post(`/myrequest`, { email })
@@ -14,5 +14,5 @@ export default function useMyRequest() {
         },
         refetchInterval: 60000, // every minute
     })
-    return [myRequest, refetch]
+    return [myRequest, refetch,isLoading]
 }

@@ -6,7 +6,7 @@ import useMyDonations from '../../hooks/myDonations/useMyDonations'
 export default function MyDonations() {
     const [myDonations, isLoading, refetch] = useMyDonations()
     const axiosSecure = useAxiosSecure()
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
 
     const handleDelete = (id) => {
 

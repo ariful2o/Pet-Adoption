@@ -7,7 +7,7 @@ import useAxiosSecure from "../../hooks/axios/useAxiosSecure";
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: allUsers = [], refetch } = useQuery({
+  const { data: allUsers = [], refetch ,isLoading} = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
@@ -64,6 +64,9 @@ const AllUsers = () => {
       }
     });
   };
+
+
+if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
   return (
     <section>
 

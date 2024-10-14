@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             }, {
                 path: "/:path/:id",
                 element: <Details />,
-                loader: ({ params }) => fetch(`https://b9a12-server-side-mohammadariful20-efgx.vercel.app/${params.path}/${params.id}`)
+                loader: ({ params }) => fetch(`https://pet-adoption-server-production.up.railway.app/${params.path}/${params.id}`)
             }, {
                 path: "/profile",
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>

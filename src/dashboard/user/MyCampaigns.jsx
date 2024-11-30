@@ -6,7 +6,7 @@ const MyCampaigns = () => {
   const [donators, setDonators] = useState([]);
   const [totalAmounts, setTotalAmounts] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const { mycampaigns, refetch, isLoading, } = useMyCamapaigns();
+  const { mycampaigns,  isLoading, } = useMyCamapaigns();
   // const [myDonations] = useMyDonations();
   const axiosSecure = useAxiosSecure();
 

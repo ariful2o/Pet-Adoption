@@ -13,7 +13,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_SRTIPE_PAI_KEY);
 
 const DonationDetails = () => {
   const { id } = useParams();
-  const { mycampaigns, refetch, isLoading, isError } = useMyCampaigns()
+  const { mycampaigns, isLoading } = useMyCampaigns()
 
   const axiosSecure = useAxiosSecure()
   const { data: campaign = [] } = useQuery({

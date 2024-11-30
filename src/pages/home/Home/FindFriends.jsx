@@ -13,16 +13,16 @@ export default function FindFriends() {
                 <div className="w-full grid grid-cols-2 gap-1 lg:gap-3">
                     <img
                         src={image1}
-                        className="w-full h-auto lg:w-80 lg:h-[300px] rounded-lg shadow-2xl" />
+                        className="w-full h-auto lg:h-[300px] rounded-lg shadow-2xl" />
                     <img
                         src={image2}
-                        className="w-full h-auto lg:w-80 lg:h-[300px] rounded-lg shadow-2xl" />
+                        className="w-full h-auto lg:h-[300px] rounded-lg shadow-2xl" />
                     <img
                         src={image3}
-                        className="w-full h-auto lg:w-80 lg:h-[300px] rounded-lg shadow-2xl" />
+                        className="w-full h-auto lg:h-[300px] rounded-lg shadow-2xl" />
                     <img
                         src={image4}
-                        className="w-full h-auto lg:w-80 lg:h-[300px] rounded-lg shadow-2xl" />
+                        className="w-full h-auto lg:h-[300px] rounded-lg shadow-2xl" />
                 </div>
                 <div className='w-full'>
                     <h1 className="text-2xl lg:text-5xl font-medium text-[#0E2515] leading-10 lg:leading-[60px]">Find Out Which Furry Friends Fits You Best!</h1>

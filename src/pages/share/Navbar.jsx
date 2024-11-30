@@ -6,7 +6,7 @@ import "./navber.css";
 
 export default function Navbar() {
   const { user, logOutUser } = useContext(AuthContext)
-  const [theme, setTheme] = useState('light');
+  const [theme,] = useState('light'); // error  'setTheme' is assigned a value but never used that why remove
   const { displayName, photoURL } = useUser()
 
   const links = <>
@@ -17,7 +17,10 @@ export default function Navbar() {
     <li><Link to='/DonationCampaigns'>Donation Campaigns</Link></li>
     <li><Link to='/blog'>Blogs</Link></li>
     <li><Link to='/contacts'>Contacts</Link></li>
-    <li><Link to='/dashboard'>Dashboard</Link></li>
+    {
+      user ? <li><Link to='/dashboard'>Dashboard</Link></li> : <li><Link to='/login'>Login</Link></li>
+    }
+
 
   </>
 

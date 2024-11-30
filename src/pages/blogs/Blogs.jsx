@@ -7,7 +7,7 @@ import useBlogs from '../../hooks/blogs/useBlogs';
 
 
 export default function Blogs() {
-  const { blogs, isLoading, refetch } = useBlogs()
+  const { blogs, isLoading } = useBlogs()
 
   if (isLoading) return <div className='w-full min-h-96 flex justify-center items-center'><span className="loading  text-accent loading-ring loading-lg"></span></div>
   return (

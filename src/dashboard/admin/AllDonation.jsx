@@ -3,8 +3,8 @@ import { useQuery } from 'react-query';
 import useAxiosSecure from '../../hooks/axios/useAxiosSecure';
 
 export default function AllDonation() {
-  const axiosSecure = useAxiosSecure()
   const [donators, setDonators] = useState([]);
+  const axiosSecure = useAxiosSecure()
   const [totalAmounts, setTotalAmounts] = useState({});
   const [showModal, setShowModal] = useState(false);
 

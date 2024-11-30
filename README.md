@@ -32,7 +32,7 @@ Check out the live demo 2: [Pet Adoption Client Live](https://pet-adoption9.netl
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/pet-adoption-client.git
+   git clone https://github.com/ariful2o/pet-adoption-client.git
 
 2. Navigate into the project directory:
 
@@ -49,7 +49,7 @@ Check out the live demo 2: [Pet Adoption Client Live](https://pet-adoption9.netl
     ```bash
     npm run dev
 
-The application will be available at http://localhost:3000.
+The application will be available at http://localhost:5173.
 
 ## Scripts
 

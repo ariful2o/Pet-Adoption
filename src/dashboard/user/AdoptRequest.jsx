@@ -92,8 +92,8 @@ if (isLoading) return <div className='w-full min-h-96 flex justify-center items-
           {
             request.length ?
               request.map((req, index) => {
-                const { name, image, breed, _id, petCategory } = req?.requestPet
-                const { address, date, email, name: username, phone, _id: userid } = req?.requestUser
+                const { name, image, breed, _id, petCategory } = req.requestPet
+                const { address, date, email, name: username, phone, _id: userid } = req.requestUser
                 const newdate = date.split('T')[0]
                 const accepted = { petId: _id, requestId: userid, petCategory }
                 return (

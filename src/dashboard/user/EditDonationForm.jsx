@@ -27,7 +27,7 @@ const EditDonationForm = () => {
       shortDescription: existingDonation.shortDescription,
       longDescription: existingDonation.longDescription,
     });
-  }, []);
+  }, [formData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
